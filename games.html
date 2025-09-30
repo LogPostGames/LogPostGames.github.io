@@ -1,6 +1,9 @@
 <!-- 
   games.html - Games Portfolio for Log Post Games
-  Strict dark mode, red accent, modern sans-serif
+  Updated: 
+    - Header includes logo (logo.png) beside the title.
+    - Each game card has a cover image at the top.
+    - Favicon included.
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +11,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Log Post Games - Our Games</title>
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -16,15 +20,14 @@
   <header>
     <div class="navbar">
       <a class="logo" href="index.html" style="display:flex;align-items:center;gap:12px;">
-        <!-- Company Logo (SVG or PNG) -->
-        <img src="/images/LPGLogoOnly.png" alt="Log Post Games Logo" style="height:38px;width:auto;display:inline-block;vertical-align:middle;">
+        <img src="logo.png" alt="Log Post Games Logo" style="height:38px;width:auto;display:inline-block;vertical-align:middle;">
         Log Post Games
       </a>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="games.html">Games</a></li>
-          <li><a href="news.html" class="active" aria-current="page">News/Blog</a></li>
+          <li><a href="games.html" class="active" aria-current="page">Games</a></li>
+          <li><a href="news.html">News/Blog</a></li>
         </ul>
       </nav>
     </div>
@@ -36,38 +39,46 @@
     <div class="games-grid">
       <!-- Game 1 -->
       <div class="game-card">
-        <div class="game-img-placeholder">TIMBERBOUND</div>
+        <div class="card-image-cover">
+          <img src="https://placehold.co/420x170/232629/c1121f?text=Timberbound" alt="Timberbound cover" class="cover-img">
+        </div>
         <div class="game-card-content">
           <div class="game-title">Timberbound</div>
           <div class="game-desc">A mystical adventure through enchanted forests, filled with environmental puzzles and ancient secrets. <br> Befriend woodland spirits and restore balance to the wild.</div>
-          <a href="#" class="more-info-btn">More Info</a>
+          <a href="game-detail-template.html" class="more-info-btn">More Info</a>
         </div>
       </div>
       <!-- Game 2 -->
       <div class="game-card">
-        <div class="game-img-placeholder">SIGNAL</div>
+        <div class="card-image-cover">
+          <img src="https://placehold.co/420x170/232629/c1121f?text=Signal+Lantern" alt="Signal Lantern cover" class="cover-img">
+        </div>
         <div class="game-card-content">
           <div class="game-title">Signal Lantern</div>
           <div class="game-desc">Light ancient towers, decipher cryptic signals, and guide a lost civilization home in this narrative puzzle platformer with atmospheric visuals.</div>
-          <a href="#" class="more-info-btn">More Info</a>
+          <a href="game-detail-template.html" class="more-info-btn">More Info</a>
         </div>
       </div>
       <!-- Game 3 -->
       <div class="game-card">
-        <div class="game-img-placeholder">LOG JAM</div>
+        <div class="card-image-cover">
+          <img src="https://placehold.co/420x170/232629/c1121f?text=Log+Jam" alt="Log Jam cover" class="cover-img">
+        </div>
         <div class="game-card-content">
           <div class="game-title">Log Jam</div>
           <div class="game-desc">Frantic, physics-based party games set on a wild river’s edge. Compete with friends as quirky animals in a series of hilarious mini-games!</div>
-          <a href="#" class="more-info-btn">More Info</a>
+          <a href="game-detail-template.html" class="more-info-btn">More Info</a>
         </div>
       </div>
       <!-- Game 4 -->
       <div class="game-card">
-        <div class="game-img-placeholder">PROJECT X</div>
+        <div class="card-image-cover">
+          <img src="https://placehold.co/420x170/232629/c1121f?text=Project+Xylem" alt="Project Xylem cover" class="cover-img">
+        </div>
         <div class="game-card-content">
           <div class="game-title">Project Xylem</div>
           <div class="game-desc">A top-secret project exploring new ways to interact, connect, and play. Stay tuned for more info as we reveal details about this experimental title!</div>
-          <a href="#" class="more-info-btn">More Info</a>
+          <a href="game-detail-template.html" class="more-info-btn">More Info</a>
         </div>
       </div>
     </div>
