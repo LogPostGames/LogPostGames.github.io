@@ -22,11 +22,6 @@ jobs:
         with:
           node-version: 20
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./build   # Change to ./dist if your build folder is named dist
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
