@@ -1,0 +1,111 @@
+<!-- 
+  index.html - Home page for Log Post Games
+  Uses strict dark mode, highlight color #c1121f, modern sans-serif
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Log Post Games - Home</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts: Inter (fallback to system sans) -->
+  <link href="https://fonts.googleapis.com/css?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="navbar">
+      <a class="logo" href="index.html">Log Post Games</a>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="news.html">News/Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1 class="hero-title">Imagination at Play</h1>
+      <p class="hero-subtitle">Log Post Games is an indie studio forging memorable worlds, unique stories, and playful experiences for all. Discover our portfolio and follow our journey!</p>
+      <a href="games.html" class="cta-btn">See Our Games</a>
+    </section>
+    
+    <!-- About Section -->
+    <section>
+      <h2 class="section-title">About Us</h2>
+      <div class="divider"></div>
+      <p>
+        <strong>Log Post Games</strong> is a passionate team of developers, artists, and storytellers dedicated to building original games that delight, challenge, and inspire. We believe in creativity, polish, and player-first design—whether you love deep narratives or just want to have fun!
+      </p>
+    </section>
+    
+    <!-- Games Preview -->
+    <section>
+      <h2 class="section-title">Games</h2>
+      <div class="divider"></div>
+      <div class="cards-row">
+        <!-- Game 1 -->
+        <div class="card">
+          <span class="card-title">Timberbound</span>
+          <span class="card-desc">Venture through a mystical forest, solve puzzles, and befriend woodland spirits in this atmospheric adventure.</span>
+          <a href="games.html" class="more-info-btn">More Games</a>
+        </div>
+        <!-- Game 2 -->
+        <div class="card">
+          <span class="card-title">Signal Lantern</span>
+          <span class="card-desc">Guide a lost civilization home by lighting ancient towers and deciphering cryptic signals in a unique puzzle platformer.</span>
+          <a href="games.html" class="more-info-btn">More Games</a>
+        </div>
+        <!-- Game 3 -->
+        <div class="card">
+          <span class="card-title">Log Jam</span>
+          <span class="card-desc">Join quirky critters in frantic, physics-based party games set on a wild river’s edge!</span>
+          <a href="games.html" class="more-info-btn">More Games</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest News Preview -->
+    <section>
+      <h2 class="section-title">Latest News</h2>
+      <div class="divider"></div>
+      <ul>
+        <li>
+          <a class="blog-title-link" href="news.html">[Dev Update] Timberbound enters beta!</a>
+        </li>
+        <li>
+          <a class="blog-title-link" href="news.html">Announcing Signal Lantern — Our Next Big Adventure</a>
+        </li>
+      </ul>
+      <div style="margin-top:14px;">
+        <a href="news.html" class="more-info-btn">Read All News</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer with social icons -->
+  <footer>
+    <div class="social-icons">
+      <!-- Social icons using SVG, highlight on hover -->
+      <a href="#" class="social-icon" title="Twitter" aria-label="Twitter">
+        <!-- Twitter SVG -->
+        <svg width="26" height="26" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M459,151.7c0.32,4.54,0.32,9.11,0.32,13.67c0,139.14-105.89,299.68-299.66,299.68A297.34,297.34,0,0,1,32,423.85a211.76,211.76,0,0,0,25.06,1.47,210.64,210.64,0,0,0,130.59-44.94,105.17,105.17,0,0,1-98.06-72.85,132.36,132.36,0,0,0,19.92,1.6,111.37,111.37,0,0,0,27.6-3.56A105.13,105.13,0,0,1,47,201.77v-1.34a105.68,105.68,0,0,0,47.5,13.19A105.15,105.15,0,0,1,41,86.13a298.44,298.44,0,0,0,216.37,109.84A118.41,118.41,0,0,1,368.61,92c0-2.39-0.05-4.77-0.17-7.13A209.54,209.54,0,0,0,459,151.7Z"/></svg>
+      </a>
+      <a href="#" class="social-icon" title="Instagram" aria-label="Instagram">
+        <!-- Instagram SVG -->
+        <svg width="26" height="26" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9S287.7 141 224.1 141zm0 186c-39.4 0-71.1-31.7-71.1-71.1s31.7-71.1 71.1-71.1 71.1 31.7 71.1 71.1-31.7 71.1-71.1 71.1zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.9C383.1 9.9 351.7 1.7 316.4 0 279.8-1.7 168.2-1.7 131.6 0 96.3 1.7 64.9 9.9 38.7 36.2 9.9 64.9 1.7 96.3 0 131.6c-1.7 36-1.7 147.6 0 183.2 1.7 35.3 9.9 66.7 36.2 92.9 28.7 28.8 66.9 36.2 92.9 36.2 36 1.7 147.6 1.7 183.2 0 35.3-1.7 66.7-9.9 92.9-36.2 28.8-28.7 36.2-66.9 36.2-92.9 1.7-36 1.7-147.6 0-183.2zM398.8 388c-7.8 19.6-23.1 35-42.6 42.6-29.5 11.7-99.6 9-132.1 9s-102.6 2.6-132.1-9c-19.6-7.8-35-23.1-42.6-42.6-11.7-29.5-9-99.6-9-132.1s-2.6-102.6 9-132.1c7.8-19.6 23.1-35 42.6-42.6 29.5-11.7 99.6-9 132.1-9s102.6-2.6 132.1 9c19.6 7.8 35 23.1 42.6 42.6 11.7 29.5 9 99.6 9 132.1s2.6 102.6-9 132.1z"/></svg>
+      </a>
+      <a href="#" class="social-icon" title="YouTube" aria-label="YouTube">
+        <!-- YouTube SVG -->
+        <svg width="26" height="26" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M549.7 124.1c-6.3-23.7-24.9-42.3-48.6-48.6C456.4 64 288 64 288 64s-168.4 0-213.1 11.5c-23.7 6.3-42.3 24.9-48.6 48.6C16 168.8 16 256 16 256s0 87.2 10.3 131.9c6.3 23.7 24.9 42.3 48.6 48.6C119.6 448 288 448 288 448s168.4 0 213.1-11.5c23.7-6.3 42.3-24.9 48.6-48.6C560 343.2 560 256 560 256s0-87.2-10.3-131.9zM232 336V176l142.7 80L232 336z"/></svg>
+      </a>
+    </div>
+    <small>&copy; 2025 Log Post Games. All rights reserved.</small>
+  </footer>
+</body>
+</html>
