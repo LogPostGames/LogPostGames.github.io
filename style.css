@@ -329,6 +329,14 @@ nav a:hover {
   color: #fff;
 }
 
+.card .more-info-btn,
+.game-card-content .more-info-btn {
+  margin-top: auto;          /* Pushes the button to the bottom */
+  margin-left: 24px;         /* Align with content padding (adjust if needed) */
+  margin-bottom: 0;          /* Remove or set to 24px if you want bottom gap */
+  align-self: flex-start;    /* Ensures button aligns left */
+}
+
 /* News/blog listing (news.html) */
 .blog-list {
   display: flex;
