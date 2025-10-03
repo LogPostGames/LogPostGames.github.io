@@ -12,7 +12,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Log Post Games - Home</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
   <link rel="stylesheet" href="style.css">
   <!-- Google Fonts: Inter (fallback to system sans) -->
   <link href="https://fonts.googleapis.com/css?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -56,9 +56,10 @@
     <section>
       <h2 class="section-title">Games</h2>
       <div class="divider"></div>
-      <div class="cards-row">
+
+      <!--<div class="cards-row">
         <!-- Capain's Log -->
-        <div class="card">
+        <!--<div class="card">
           <div class="card-image-cover">
             <img src="https://placehold.co/350x160/232629/c1121f?text=Captain's+Log" alt="Captain's Log cover" class="cover-img">
           </div>
@@ -67,7 +68,7 @@
           <a href="games.html" class="more-info-btn">More Games</a>
         </div>
         <!-- Tricks of War -->
-        <div class="card">
+        <!--<div class="card">
           <div class="card-image-cover">
             <img src="https://placehold.co/350x160/232629/c1121f?text=Tricks+of+War" alt="ricks of War cover" class="cover-img">
           </div>
@@ -75,7 +76,10 @@
           <span class="card-desc">A trick-taking tabletop card game inspired by the wars of the Renassaince era.</span>
           <a href="games.html" class="more-info-btn">More Games</a>
         </div>
-      </div>
+      </div>-->
+
+      <div id="home-games-preview" class="cards-row"></div>
+
     </section>
 
     <!-- Latest News Preview -->
@@ -133,5 +137,45 @@
     </div>
     <small>&copy; 2025 Log Post Games. All rights reserved.</small>
   </footer>
+
+  <script>
+    // For Games (games.html or games section)
+    fetch('games.json')
+      .then(res => res.json())
+      .then(games => {
+        const gamesContainer = document.getElementById('games-list') || document.getElementById('home-games-preview');
+        if (!gamesContainer) return;
+        gamesContainer.innerHTML = games.slice(0, 3).map(game => `
+          <div class="card">
+            <div class="card-image-cover">
+              <img src="${game.cover}" alt="${game.title} cover" class="cover-img">
+            </div>
+            <span class="card-title">${game.title}</span>
+            <span class="card-desc">${game.desc}</span>
+            <a href="${game.moreInfoLink}" class="more-info-btn">More Info</a>
+          </div>
+        `).join('');
+      });
+
+    // For News (news section or news.html)
+    fetch('news.json')
+      .then(res => res.json())
+      .then(news => {
+        const newsContainer = document.getElementById('home-news-preview');
+        if (!newsContainer) return;
+        newsContainer.innerHTML = news.slice(0, 2).map(post => `
+          <div class="card">
+            <div class="card-image-cover">
+              <img src="${post.cover}" alt="${post.title}" class="cover-img">
+            </div>
+            <span class="card-title">${post.title}</span>
+            <span class="card-desc">${post.desc}</span>
+            <a href="${post.link}" class="more-info-btn">Read News</a>
+          </div>
+        `).join('');
+      });
+</script>
+
+
 </body>
 </html>

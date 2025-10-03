@@ -1,0 +1,19 @@
+[
+  {
+    "title": "Announing Log Post Games!",
+    "desc": "I am thrilled to announce the launch of the new independent video game development studio, Log Post Games!.",
+    "cover": "images/news-signal-lantern.jpg",
+    "link": "/posts/new-game-announcement.html",
+    "date": "2025-09-20",
+    "tags": ["Dev Updates"]
+  },
+  {
+    "title": "[Dev Update] Timberbound enters beta!",
+    "desc": "Timberbound has officially reached beta! Read about new features and how to participate in playtesting and feedback.",
+    "cover": "images/news-timberbound-beta.jpg",
+    "link": "/posts/timberbound-beta-update.html",
+    "date": "2025-09-20",
+    "tags": ["Dev Updates"]
+  }
+  // ...more news
+]
