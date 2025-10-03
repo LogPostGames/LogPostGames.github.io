@@ -57,26 +57,6 @@
       <h2 class="section-title">Games</h2>
       <div class="divider"></div>
 
-      <!--<div class="cards-row">
-        <!-- Capain's Log -->
-        <!--<div class="card">
-          <div class="card-image-cover">
-            <img src="https://placehold.co/350x160/232629/c1121f?text=Captain's+Log" alt="Captain's Log cover" class="cover-img">
-          </div>
-          <span class="card-title">Capttain's Log</span>
-          <span class="card-desc">Explore the now empty space shuttle and uncover the truth about those who used to live here.</span>
-          <a href="games.html" class="more-info-btn">More Games</a>
-        </div>
-        <!-- Tricks of War -->
-        <!--<div class="card">
-          <div class="card-image-cover">
-            <img src="https://placehold.co/350x160/232629/c1121f?text=Tricks+of+War" alt="ricks of War cover" class="cover-img">
-          </div>
-          <span class="card-title">Tricks of War</span>
-          <span class="card-desc">A trick-taking tabletop card game inspired by the wars of the Renassaince era.</span>
-          <a href="games.html" class="more-info-btn">More Games</a>
-        </div>
-      </div>-->
       <div id="home-games-preview" class="cards-row"></div>
       <script>
         // For Games (games.html or games section)
@@ -96,9 +76,9 @@
               </div>
             `).join('');
           })
-        .catch(error => {
-          console.error('Error fetching or processing game data:', error);
-        });
+          .catch(error => {
+            console.error('Error fetching or processing game data:', error);
+          });
         </script>
     </section>
 
@@ -106,29 +86,32 @@
     <section>
       <h2 class="section-title">Latest News</h2>
       <div class="divider"></div>
-      <div class="cards-row">
-        <!-- News 1 -->
-        <div class="card">
-          <div class="card-image-cover">
-            <img src="https://placehold.co/350x160/232629/c1121f?text=Signal+Lantern+Announce" alt="Signal Lantern Announcement" class="cover-img">
-          </div>
-          <span class="card-title">Announcing "Signal Lantern" – Our Next Big Adventure!</span>
-          <span class="card-desc">We're thrilled to reveal our newest project, Signal Lantern, a puzzle platformer about guiding lost civilizations home.</span>
-          <a href="news.html" class="more-info-btn">Read News</a>
-        </div>
-        <!-- News 2 -->
-        <div class="card">
-          <div class="card-image-cover">
-            <img src="https://placehold.co/350x160/232629/c1121f?text=Announcing+Log+Post" alt="Announcing Log Post Games" class="cover-img">
-          </div>
-          <span class="card-title">Announing Log Post Games!</span>
-          <span class="card-desc">I am thrilled to announce the launch of the new independent video game development studio, <strong>Log Post Games</strong>!.</span>
-          <a href="news.html" class="more-info-btn">Read News</a>
-        </div>
-      </div>
-      <div style="margin-top:14px;">
-        <a href="news.html" class="more-info-btn">Read All News</a>
-      </div>
+
+      <div id="home-news-preview" class="cards-row"></div>
+      <script>
+        // For News (news section or news.html)
+        fetch('news.json')
+          .then(res => res.json())
+          .then(news => {
+            const newsContainer = document.getElementById('home-news-preview');
+            if (!newsContainer) return;
+            newsContainer.innerHTML = news.slice(0, 2).map(post => `
+              <div class="card">
+                <div class="card-image-cover">
+                  <img src="${post.cover}" alt="${post.title}" class="cover-img">
+                </div>
+                <span class="card-title">${post.title}</span>
+                <span class="card-desc">${post.desc}</span>
+                <a href="${post.link}" class="more-info-btn">Read News</a>
+              </div>
+            `).join('');
+          })
+          .catch(error => {
+            console.error('Error fetching or processing game data:', error);
+          });
+       </script>
+
+
     </section>
   </main>
 
@@ -157,44 +140,5 @@
     </div>
     <small>&copy; 2025 Log Post Games. All rights reserved.</small>
   </footer>
-
-  <script>
-    // For Games (games.html or games section)
-    fetch('games.json')
-      .then(res => res.json())
-      .then(games => {
-        const gamesContainer = document.getElementById('games-list') || document.getElementById('home-games-preview');
-        if (!gamesContainer) return;
-        gamesContainer.innerHTML = games.slice(0, 3).map(game => `
-          <div class="card">
-            <div class="card-image-cover">
-              <img src="${game.cover}" alt="${game.title} cover" class="cover-img">
-            </div>
-            <span class="card-title">${game.title}</span>
-            <span class="card-desc">${game.desc}</span>
-            <a href="${game.moreInfoLink}" class="more-info-btn">More Info</a>
-          </div>
-        `).join('');
-      });
-
-    // For News (news section or news.html)
-    fetch('news.json')
-      .then(res => res.json())
-      .then(news => {
-        const newsContainer = document.getElementById('home-news-preview');
-        if (!newsContainer) return;
-        newsContainer.innerHTML = news.slice(0, 2).map(post => `
-          <div class="card">
-            <div class="card-image-cover">
-              <img src="${post.cover}" alt="${post.title}" class="cover-img">
-            </div>
-            <span class="card-title">${post.title}</span>
-            <span class="card-desc">${post.desc}</span>
-            <a href="${post.link}" class="more-info-btn">Read News</a>
-          </div>
-        `).join('');
-      });
-    </script>
-
 </body>
 </html>
