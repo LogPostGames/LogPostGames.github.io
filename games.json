@@ -1,7 +1,7 @@
 [
   {
-    "title": "Captain's Log'",
-    "cover": "images/captains-log'.jpg",
+    "title": "Captains Log",
+    "cover": "images/captains-log.jpg",
     "desc": "Explore the now empty space shuttle and uncover the truth about those who used to live here.",
     "moreInfoLink": "game-detail-CL.html"
   },
@@ -12,4 +12,5 @@
     "moreInfoLink": "game-detail-ToW.html"
   }
   // ...more games
+
 ]
