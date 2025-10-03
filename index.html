@@ -95,6 +95,9 @@
               </div>
             `).join('');
           });
+        .catch(error => {
+          console.error('Error fetching or processing game data:', error);
+        });
         </script>
     </section>
 
