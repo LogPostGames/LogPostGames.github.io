@@ -36,52 +36,31 @@
   <main class="main-content">
     <h1 class="section-title" style="margin-top:0;">Our Games Portfolio</h1>
     <div class="divider"></div>
-    <div class="games-grid">
-      <!-- Game 1 -->
-      <div class="game-card">
-        <div class="card-image-cover">
-          <img src="https://placehold.co/420x170/232629/c1121f?text=Capttain's+Log'" alt="Captain's Log cover" class="cover-img">
-        </div>
-        <div class="game-card-content">
-          <div class="game-title">Captain's Log</div>
-          <div class="game-desc">Explore the now empty space shuttle and uncover the truth about those who used to live here.</div>
-          <a href="/games/game-detail-CL.html" class="more-info-btn">More Info</a>
-        </div>
-      </div>
-      <!-- Game 2 -->
-      <div class="game-card">
-        <div class="card-image-cover">
-          <img src="https://placehold.co/420x170/232629/c1121f?text=Signal+Lantern" alt="Signal Lantern cover" class="cover-img">
-        </div>
-        <div class="game-card-content">
-          <div class="game-title">Signal Lantern</div>
-          <div class="game-desc">Light ancient towers, decipher cryptic signals, and guide a lost civilization home in this narrative puzzle platformer with atmospheric visuals.</div>
-          <a href="game-detail-template.html" class="more-info-btn">More Info</a>
-        </div>
-      </div>
-      <!-- Game 3 -->
-      <div class="game-card">
-        <div class="card-image-cover">
-          <img src="https://placehold.co/420x170/232629/c1121f?text=Log+Jam" alt="Log Jam cover" class="cover-img">
-        </div>
-        <div class="game-card-content">
-          <div class="game-title">Log Jam</div>
-          <div class="game-desc">Frantic, physics-based party games set on a wild river’s edge. Compete with friends as quirky animals in a series of hilarious mini-games!</div>
-          <a href="game-detail-template.html" class="more-info-btn">More Info</a>
-        </div>
-      </div>
-      <!-- Game 4 -->
-      <div class="game-card">
-        <div class="card-image-cover">
-          <img src="https://placehold.co/420x170/232629/c1121f?text=Project+Xylem" alt="Project Xylem cover" class="cover-img">
-        </div>
-        <div class="game-card-content">
-          <div class="game-title">Project Xylem</div>
-          <div class="game-desc">A top-secret project exploring new ways to interact, connect, and play. Stay tuned for more info as we reveal details about this experimental title!</div>
-          <a href="game-detail-template.html" class="more-info-btn">More Info</a>
-        </div>
-      </div>
-    </div>
+    
+    <div id="games-list" class="games-grid">
+      <script>
+        // For Games (games.html or games section)
+        fetch('games.json')
+          .then(res => res.json())
+          .then(games => {
+            const gamesContainer = document.getElementById('games-list') || document.getElementById('home-games-preview');
+            if (!gamesContainer) return;
+            gamesContainer.innerHTML = games.map(game => `
+              <div class="card">
+                <div class="card-image-cover">
+                  <img src="${game.cover}" alt="${game.title} cover" class="cover-img">
+                </div>
+                <span class="card-title">${game.title}</span>
+                <span class="card-desc">${game.desc}</span>
+                <a href="${game.moreInfoLink}" class="more-info-btn">More Info</a>
+              </div>
+            `).join('');
+          })
+          .catch(error => {
+            console.error('Error fetching or processing game data:', error);
+          });
+        </script>
+
   </main>
 
   <!-- Footer with social icons -->
