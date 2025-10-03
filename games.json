@@ -1,15 +1,14 @@
 [
   {
     "title": "Captains Log",
-    "cover": "images/captains-log.jpg",
+    "cover": "https://placehold.co/350x160/232629/c1121f?text=Captain's+Log",
     "desc": "Explore the now empty space shuttle and uncover the truth about those who used to live here.",
     "moreInfoLink": "game-detail-CL.html"
   },
   {
     "title": "Tricks of War",
-    "cover": "images/tricks-of-war.jpg",
+    "cover": "https://placehold.co/350x160/232629/c1121f?text=Tricks+of+War",
     "desc": "A trick-taking tabletop card game inspired by the wars of the Renassaince era.",
     "moreInfoLink": "game-detail-ToW.html"
   }
 ]
-
