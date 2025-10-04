@@ -331,6 +331,7 @@ nav a:hover {
 
 /* News/blog listing (news.html) */
 .blog-list {
+  flex: 1 1 0;
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -377,12 +378,20 @@ nav a:hover {
 .news-layout {
   display: flex;
   gap: 2.5rem;
+  align-items: stretch; /* Ensures children stretch equally in height */
+  min-height: 60vh; /* Optional: ensures a minimum height */
 }
 
 @media (max-width: 900px) {
   .news-layout {
     flex-direction: column;
     gap: 1.5rem;
+    align-items: stretch;
+  }
+  .sidebar {
+    width: 100%;
+    margin-bottom: 16px;
+    height: auto; /* Reset for stacked layout */
   }
 }
 
@@ -395,6 +404,10 @@ nav a:hover {
   font-size: 1rem;
   margin-top: 8px;
   flex-shrink: 0;
+  height: 100%;
+  align-self: stretch;    /* This line makes sidebar stretch to parent height */
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar-title {
