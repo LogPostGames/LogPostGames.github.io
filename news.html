@@ -34,9 +34,9 @@
   <main class="main-content">
     <h1 class="section-title" style="margin-top:0;">Studio News &amp; Updates</h1>
     <div class="divider"></div>
-    <div class="news-layout">
+    <!--<div class="news-layout">
       <!-- Sidebar -->
-      <aside class="sidebar">
+      <!--<aside class="sidebar">
         <div class="sidebar-title">Categories</div>
         <ul class="sidebar-list">
             <li><a href="#" class="sidebar-link tag-link" data-tag="All">All</a></li>
@@ -51,85 +51,8 @@
           <li><a href="#" class="sidebar-link">July 2025</a></li>
         </ul>-->
         
-      </aside>
-
-      <!-- Blog List -->
-      <section class="blog-list" id="news-list" aria-label="Blog Posts">
-      <!-- JS will load news cards here -->
-      <script>
-        let newsData = [];
-        const newsContainer = document.getElementById('news-list');
-
-        // Fetch news JSON once
-        fetch('news.json')
-          .then(res => res.json())
-          .then(data => {
-            newsData = data;
-            renderNews('All');
-          });
-
-        function renderNews(tag) {
-          let filtered = (tag === 'All') ? newsData : newsData.filter(post => post.tags.includes(tag));
-          if (filtered.length === 0) {
-            newsContainer.innerHTML = `<p style="color:var(--text-muted);padding:24px 0;">No news posts found for this category.</p>`;
-            return;
-          }
-          newsContainer.innerHTML = filtered.map(post => `
-            <article class="blog-post">
-              <a class="blog-title-link" href="${post.link}">${post.title}</a>
-              <span class="blog-date">${formatDate(post.date)}</span>
-              <p class="blog-snippet">${post.desc}</p>
-              <div style="margin-top:14px;">
-                ${(post.tags||[]).map(tag => `<span class="news-tag">${tag}</span>`).join(' ')}
-              </div>
-            </article>
-          `).join('');
-        }
-
-        // Tag click event
-        document.addEventListener('DOMContentLoaded', function() {
-          document.querySelectorAll('.tag-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-              e.preventDefault();
-              const tag = this.getAttribute('data-tag');
-              // Highlight active tag
-              document.querySelectorAll('.tag-link').forEach(l => l.classList.remove('active'));
-              this.classList.add('active');
-              renderNews(tag);
-            });
-          });
-        });
-
-        function formatDate(dateStr) {
-          // Format as e.g. September 28, 2025
-          const d = new Date(dateStr);
-          return d.toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: 'numeric'});
-        }
-        </script>
-        <style>
-        /* Optional: style for news tags */
-        .news-tag {
-          display: inline-block;
-          background: var(--brand-red);
-          color: #fff;
-          border-radius: 4px;
-          font-size: 0.87em;
-          padding: 2px 10px;
-          margin-right: 6px;
-          margin-top: 2px;
-          margin-bottom: 2px;
-          font-weight: 500;
-          letter-spacing: 0.02em;
-        }
-        .tag-link.active {
-          color: var(--brand-red);
-          font-weight: 700;
-          text-decoration: underline;
-        }
-        </style>
-      </section>
-
-
+      <!--</aside>-->
+      
       <section class="blog-list" aria-label="Blog Posts">
       <div id="news-list" class="cards-row"></div>
       <script>
