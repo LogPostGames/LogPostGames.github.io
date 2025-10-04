@@ -57,11 +57,10 @@
       <section class="blog-list" aria-label="Blog Posts">
       <div id="news-list" class="cards-row"></div>
       <script>
-        // For News (news section or news.html)
         fetch('news.json')
           .then(res => res.json())
           .then(news => {
-            const newsContainer = document.getElementById('.blog-list');
+            const newsContainer = document.getElementById('news-list');
             if (!newsContainer) return;
             newsContainer.innerHTML = news.map(post => `
               <div class="card">
@@ -75,9 +74,11 @@
             `).join('');
           })
           .catch(error => {
-            console.error('Error fetching or processing game data:', error);
+            document.getElementById('news-list').innerHTML = 
+              '<div style="color: var(--brand-red); padding: 16px;">Failed to load news.</div>';
+            console.error('Error fetching or processing news data:', error);
           });
-       </script>
+        </script>
       </section>
     </div>
   </main>
