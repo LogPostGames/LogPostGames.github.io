@@ -61,7 +61,7 @@
         fetch('news.json')
           .then(res => res.json())
           .then(news => {
-            const newsContainer = document.getElementById('home-news-preview');
+            const newsContainer = document.getElementById('.blog-list');
             if (!newsContainer) return;
             newsContainer.innerHTML = news.map(post => `
               <div class="card">
