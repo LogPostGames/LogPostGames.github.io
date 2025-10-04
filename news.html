@@ -126,29 +126,7 @@
 
       <!-- Blog List -->
       <section class="blog-list" aria-label="Blog Posts">
-        <div id="home-news-preview" class="cards-row"></div>
-      <script>
-        // For News (news section or news.html)
-        fetch('news.json')
-          .then(res => res.json())
-          .then(news => {
-            const newsContainer = document.getElementById('home-news-preview');
-            if (!newsContainer) return;
-            newsContainer.innerHTML = news.slice(0, 2).map(post => `
-              <div class="card">
-                <div class="card-image-cover">
-                  <img src="${post.cover}" alt="${post.title}" class="cover-img">
-                </div>
-                <span class="card-title">${post.title}</span>
-                <span class="card-desc">${post.desc}</span>
-                <a href="${post.link}" class="more-info-btn">Read News</a>
-              </div>
-            `).join('');
-          })
-          .catch(error => {
-            console.error('Error fetching or processing game data:', error);
-          });
-       </script>
+        
       </section>
     </div>
   </main>
