@@ -8,6 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Log Post Games - News & Updates</title>
+  <link rel="icon" type="image/png" href="/images/favicon.png">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -38,59 +39,116 @@
       <aside class="sidebar">
         <div class="sidebar-title">Categories</div>
         <ul class="sidebar-list">
-          <li><a href="#" class="sidebar-link">Dev Updates</a></li>
-          <li><a href="#" class="sidebar-link">Announcements</a></li>
-          <li><a href="#" class="sidebar-link">Behind the Scenes</a></li>
+            <li><a href="#" class="sidebar-link tag-link" data-tag="Dev Updates">Dev Updates</a></li>
+            <li><a href="#" class="sidebar-link tag-link" data-tag="Announcements">Announcements</a></li>
+            <li><a href="#" class="sidebar-link tag-link" data-tag="Releases">Releases</a></li>
+            <li><a href="#" class="sidebar-link tag-link" data-tag="All">All</a></li>
         </ul>
-        <div class="sidebar-title">Archive</div>
+        <!--<div class="sidebar-title">Archive</div>
         <ul class="sidebar-list">
           <li><a href="#" class="sidebar-link">September 2025</a></li>
           <li><a href="#" class="sidebar-link">August 2025</a></li>
           <li><a href="#" class="sidebar-link">July 2025</a></li>
-        </ul>
+        </ul>-->
+        <section class="blog-list" id="news-list" aria-label="Blog Posts">
+        <script>
+            let newsData = [];
+            const newsContainer = document.getElementById('news-list');
+
+            // Fetch news JSON once
+            fetch('news.json')
+              .then(res => res.json())
+              .then(data => {
+                newsData = data;
+                renderNews('All');
+              });
+
+            function renderNews(tag) {
+              let filtered = (tag === 'All') ? newsData : newsData.filter(post => post.tags.includes(tag));
+              if (filtered.length === 0) {
+                newsContainer.innerHTML = `<p style="color:var(--text-muted);padding:24px 0;">No news posts found for this category.</p>`;
+                return;
+              }
+              newsContainer.innerHTML = filtered.map(post => `
+                <article class="blog-post">
+                  <a class="blog-title-link" href="${post.link}">${post.title}</a>
+                  <span class="blog-date">${formatDate(post.date)}</span>
+                  <p class="blog-snippet">${post.desc}</p>
+                  <div style="margin-top:14px;">
+                    ${(post.tags||[]).map(tag => `<span class="news-tag">${tag}</span>`).join(' ')}
+                  </div>
+                </article>
+              `).join('');
+            }
+
+            // Tag click event
+            document.addEventListener('DOMContentLoaded', function() {
+              document.querySelectorAll('.tag-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  const tag = this.getAttribute('data-tag');
+                  // Highlight active tag
+                  document.querySelectorAll('.tag-link').forEach(l => l.classList.remove('active'));
+                  this.classList.add('active');
+                  renderNews(tag);
+                });
+              });
+            });
+
+            function formatDate(dateStr) {
+              // Format as e.g. September 28, 2025
+              const d = new Date(dateStr);
+              return d.toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: 'numeric'});
+            }
+            </script>
+            <style>
+            /* Optional: style for news tags */
+            .news-tag {
+              display: inline-block;
+              background: var(--brand-red);
+              color: #fff;
+              border-radius: 4px;
+              font-size: 0.87em;
+              padding: 2px 10px;
+              margin-right: 6px;
+              margin-top: 2px;
+              margin-bottom: 2px;
+              font-weight: 500;
+              letter-spacing: 0.02em;
+            }
+            .tag-link.active {
+              color: var(--brand-red);
+              font-weight: 700;
+              text-decoration: underline;
+            }
+            </style>
       </aside>
+
       <!-- Blog List -->
       <section class="blog-list" aria-label="Blog Posts">
-        <!-- Post 1 -->
-        <article class="blog-post">
-          <a class="blog-title-link" href="/posts/new-game-announcement.html">Announcing "Signal Lantern" – Our Next Big Adventure!</a>
-          <span class="blog-date">September 28, 2025</span>
-          <p class="blog-snippet">
-            We're thrilled to reveal our newest project, Signal Lantern, a puzzle platformer about guiding lost civilizations home. Dive into the details of our creative process and what's coming soon…
-          </p>
-        </article>
-        <!-- Post 2 -->
-        <article class="blog-post">
-          <a class="blog-title-link" href="/posts/timberbound-beta-update.html">[Dev Update] Timberbound enters beta!</a>
-          <span class="blog-date">September 20, 2025</span>
-          <p class="blog-snippet">
-            Timberbound has officially reached beta! Read about the new features, bug fixes, and how you can participate in playtesting and feedback.
-          </p>
-        </article>
-        <!-- Post 3 -->
-        <article class="blog-post">
-          <a class="blog-title-link" href="/posts/devlog-art-direction.html">Behind the Scenes: Art Direction in Timberbound</a>
-          <span class="blog-date">August 17, 2025</span>
-          <p class="blog-snippet">
-            Take a look at our visual development process for Timberbound, from early sketches to the lush, animated forests you’ll explore in-game.
-          </p>
-        </article>
-        <!-- Post 4 -->
-        <article class="blog-post">
-          <a class="blog-title-link" href="/posts/log-jam-patch-notes.html">Log Jam Patch Notes v1.2</a>
-          <span class="blog-date">August 1, 2025</span>
-          <p class="blog-snippet">
-            Log Jam gets even better! Discover what’s new in our latest patch—new mini-games, bug fixes, and improvements based on your feedback.
-          </p>
-        </article>
-        <!-- Post 5 -->
-        <article class="blog-post">
-          <a class="blog-title-link" href="/posts/welcome-to-log-post-games.html">Welcome to Log Post Games!</a>
-          <span class="blog-date">July 10, 2025</span>
-          <p class="blog-snippet">
-            Meet the team and learn about our vision. This marks our very first post—thank you for joining us on this adventure!
-          </p>
-        </article>
+        <div id="home-news-preview" class="cards-row"></div>
+      <script>
+        // For News (news section or news.html)
+        fetch('news.json')
+          .then(res => res.json())
+          .then(news => {
+            const newsContainer = document.getElementById('home-news-preview');
+            if (!newsContainer) return;
+            newsContainer.innerHTML = news.slice(0, 2).map(post => `
+              <div class="card">
+                <div class="card-image-cover">
+                  <img src="${post.cover}" alt="${post.title}" class="cover-img">
+                </div>
+                <span class="card-title">${post.title}</span>
+                <span class="card-desc">${post.desc}</span>
+                <a href="${post.link}" class="more-info-btn">Read News</a>
+              </div>
+            `).join('');
+          })
+          .catch(error => {
+            console.error('Error fetching or processing game data:', error);
+          });
+       </script>
       </section>
     </div>
   </main>
