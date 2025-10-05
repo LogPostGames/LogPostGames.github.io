@@ -6,7 +6,7 @@ const headerHTML = `
   <header>
     <div class="navbar">
       <a class="logo" href="index.html" style="display:flex;align-items:center;gap:12px;">
-        <img src="logo.png" alt="Log Post Games Logo" style="height:38px;width:auto;display:inline-block;vertical-align:middle;">
+        <img src="/images/LPGLogoOnly.png" alt="Log Post Games Logo" style="height:38px;width:auto;display:inline-block;vertical-align:middle;">
         Log Post Games
       </a>
       <nav>
