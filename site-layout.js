@@ -23,7 +23,8 @@ const headerHTML = `
 
 // FOOTER HTML
 const footerHTML = `
-  <div class="social-icons" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+  <footer>
+    <div class="social-icons" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
         <a href="https://x.com/LogPostGames" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; background: linear-gradient(135deg, #c1121f 0%, #c1121f 100%); border-radius: 15px; padding: 8px; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.transform='translateY(-4px)'; " onmouseout="this.style.transform=''; this.style.filter=''; this.style.animation=''; ">
            <svg class="niftybutton-twitterx" style="width: 32px; height: 32px; display: block;" data-donate="true" data-tag="twix" data-name="X (Twitter)" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><title>X (Twitter) social icon</title>
                 <g transform="translate(64, 64) scale(0.75, 0.75)">
