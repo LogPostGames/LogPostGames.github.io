@@ -1,9 +1,10 @@
 /* 
   style.css - Central stylesheet for Log Post Games website
-  Updated: 
-    - .card-image-cover class for cover images on cards.
-    - .cover-img styles for consistent cover images.
-    - News preview cards on homepage now match game cards visually.
+
+  --- CHANGES included for:
+  - News/blog sidebar always full height of main content area (flex stretch)
+  - Blog list stretches and aligns with sidebar
+  - Contact-alt visual CTA card styles (support/playtest distinction, CTA boxes, icons)
 */
 
 /* Reset and base styles */
@@ -20,6 +21,10 @@
   --text-main: #f2f2f6;
   --text-muted: #bcbcbc;
   --brand-red: #c1121f;
+  --brand-red-bg: #2e2122;
+  --brand-blue: #669bbc;
+  --brand-orange: #eb5e28;
+  --brand-orange-bg: #2d2220;
   --shadow: 0 4px 24px rgba(0,0,0,0.25);
   --radius: 8px;
   --transition: 0.2s cubic-bezier(.4,0,.2,1);
@@ -209,6 +214,8 @@ nav a:hover {
   align-items: flex-start;
   margin-bottom: 16px;
   overflow: hidden;
+  height: 100%; /* ensure consistent card height for auto-bottom alignment */
+  position: relative;
 }
 
 .card-image-cover {
@@ -219,6 +226,7 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative; /* for news tag badge */
 }
 
 .card-image-cover .cover-img {
@@ -228,6 +236,24 @@ nav a:hover {
   object-fit: cover;
   object-position: center;
   border-bottom: 2px solid var(--brand-red);
+}
+
+/* News tag badge for top-left of image */
+.news-tag-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--brand-red, #c1121f);
+  color: #fff;
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px #0002;
+  z-index: 3;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  user-select: none;
 }
 
 .card .card-title {
@@ -248,9 +274,12 @@ nav a:hover {
 /* Games grid (games.html) */
 .games-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 2rem;
   margin-top: 32px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .game-card {
@@ -261,6 +290,10 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   padding: 0;
+  max-width: 350px;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .game-card .card-image-cover {
@@ -271,6 +304,7 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
 }
 
 .game-card .cover-img {
@@ -282,9 +316,6 @@ nav a:hover {
   border-bottom: 2px solid var(--brand-red);
 }
 
-/* 
-  game-card-content is reused below 
-*/
 .game-card-content {
   padding: 18px 18px 20px 18px;
   flex: 1;
@@ -306,27 +337,20 @@ nav a:hover {
   flex: 1;
 }
 
-.more-info-btn {
-  align-self: flex-start;
-  background: none;
-  border: 1.5px solid var(--brand-red);
-  color: var(--brand-red);
-  border-radius: var(--radius);
-  padding: 7px 18px;
-  font-weight: 600;
-  cursor: pointer;
-  font-size: 0.98rem;
-  margin-left: 24px;
-  transition: background var(--transition), color var(--transition);
+/* Ensure "Read More"/"More Info" buttons are always placed at the bottom left of their card */
+.card .more-info-btn,
+.game-card-content .more-info-btn {
+  margin-top: auto;          /* Pushes the button to the bottom */
+  margin-left: 24px;         /* Align with content padding (adjust if needed) */
+  margin-bottom: 0;          /* Remove or set to 24px if you want bottom gap */
+  align-self: flex-start;    /* Ensures button aligns left */
 }
 
-.card .more-info-btn {
-  margin-left: 24px;
-}
-
-.more-info-btn:hover, .more-info-btn:focus {
-  background: var(--brand-red);
-  color: #fff;
+@media (max-width: 600px) {
+  .card, .game-card {
+    max-width: 100%;
+    height: auto; /* On mobile, allow height to shrink if needed */
+  }
 }
 
 /* News/blog listing (news.html) */
@@ -374,25 +398,12 @@ nav a:hover {
   font-size: 1rem;
 }
 
-/* Sidebar (news.html) */
+/* News/blog sidebar always full height of main content area */
 .news-layout {
   display: flex;
   gap: 2.5rem;
   align-items: stretch; /* Ensures children stretch equally in height */
-  min-height: 60vh; /* Optional: ensures a minimum height */
-}
-
-@media (max-width: 900px) {
-  .news-layout {
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: stretch;
-  }
-  .sidebar {
-    width: 100%;
-    margin-bottom: 16px;
-    height: auto; /* Reset for stacked layout */
-  }
+  min-height: 60vh;     /* Optional: ensures a minimum height */
 }
 
 .sidebar {
@@ -405,7 +416,7 @@ nav a:hover {
   margin-top: 8px;
   flex-shrink: 0;
   height: 100%;
-  align-self: stretch;    /* This line makes sidebar stretch to parent height */
+  align-self: stretch;   /* This line makes sidebar stretch to parent height */
   display: flex;
   flex-direction: column;
 }
@@ -436,8 +447,11 @@ nav a:hover {
 }
 
 .sidebar-link:hover,
-.sidebar-link:focus {
+.sidebar-link:focus,
+.tag-link.active {
   color: var(--brand-red);
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 /* Footer */
@@ -486,6 +500,19 @@ footer small {
 }
 
 /* Responsive tweaks */
+@media (max-width: 900px) {
+  .news-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+  .sidebar {
+    width: 100%;
+    margin-bottom: 16px;
+    height: auto; /* Reset for stacked layout */
+  }
+}
+
 @media (max-width: 600px) {
   .cards-row {
     flex-direction: column;
@@ -498,4 +525,132 @@ footer small {
   .card, .game-card {
     max-width: 100%;
   }
+}
+
+/* --- Visual Contact CTA Page Styles --- */
+.visual-contact-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 36px 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+}
+.visual-contact-header {
+  text-align: center;
+  margin-bottom: 14px;
+}
+.visual-contact-header h1 {
+  color: var(--brand-red);
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.visual-contact-header p {
+  color: var(--text-muted);
+  font-size: 1.14rem;
+  margin-top: 0;
+}
+.contact-card-row {
+  display: flex;
+  gap: 2.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.contact-card {
+  flex: 1 1 320px;
+  max-width: 420px;
+  min-width: 260px;
+  background: var(--bg-card);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 18px #0002;
+  padding: 32px 24px 24px 24px;
+  position: relative;
+  overflow: hidden;
+  border: 2.5px solid transparent;
+  transition: border-color 0.18s;
+}
+.contact-card.support {
+  border-color: var(--brand-red);
+  box-shadow: 0 2px 18px #c1121f22;
+}
+.contact-card.playtest {
+  border-color: var(--brand-orange);
+  box-shadow: 0 2px 18px #eb5e2822;
+}
+.contact-card-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 14px;
+  margin-bottom: 24px;
+  background: var(--brand-red-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.7rem;
+  color: var(--brand-red);
+  box-shadow: 0 2px 8px #0002;
+}
+.contact-card.playtest .contact-card-image {
+  color: var(--brand-orange);
+  background: var(--brand-orange-bg);
+}
+.contact-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--brand-red);
+  letter-spacing: 0.5px;
+}
+.contact-card.playtest .contact-card-title {
+  color: var(--brand-orange);
+}
+.contact-card-desc {
+  color: var(--text-main);
+  font-size: 1.05rem;
+  text-align: center;
+  margin-bottom: 20px;
+  min-height: 48px;
+  line-height: 1.6;
+}
+.contact-card-email {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--brand-red-bg);
+  color: var(--brand-red);
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-top: 2px;
+  margin-bottom: 12px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.18s, color 0.18s;
+  border: 1.5px solid var(--brand-red);
+  box-shadow: 0 1px 6px #c1121f11;
+}
+.contact-card-email:hover, .contact-card-email:focus {
+  background: var(--brand-red);
+  color: #fff;
+}
+.contact-card.playtest .contact-card-email {
+  background: var(--brand-orange-bg);
+  color: var(--brand-orange);
+  border-color: var(--brand-orange);
+  box-shadow: 0 1px 6px #eb5e2822;
+}
+.contact-card.playtest .contact-card-email:hover,
+.contact-card.playtest .contact-card-email:focus {
+  background: var(--brand-orange);
+  color: #181a1b;
+}
+@media (max-width: 900px) {
+  .visual-contact-wrapper { gap: 18px; }
+  .contact-card-row { flex-direction: column; gap: 1.7rem; align-items: center; }
 }

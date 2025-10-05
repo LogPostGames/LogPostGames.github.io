@@ -1,0 +1,107 @@
+<!-- 
+  contact-alt.html - Visual Contact Page for Log Post Games
+  - No submission form, just call-to-action boxes for emailing.
+  - "Support" and "Playtest" emails in visually distinct boxes.
+  - Space for images/illustrations for each contact reason.
+  - Strict dark mode, brand accent (#c1121f), modern sans-serif, site header/footer/logo.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact – Log Post Games</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="navbar">
+      <a class="logo" href="index.html" style="display:flex;align-items:center;gap:12px;">
+        <img src="logo.png" alt="Log Post Games Logo" style="height:38px;width:auto;display:inline-block;vertical-align:middle;">
+        Log Post Games
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="news.html">News/Blog</a></li>
+          <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="visual-contact-wrapper">
+      <div class="visual-contact-header">
+        <h1>Contact Log Post Games</h1>
+        <p>We're here to help! Choose the right team below and reach out directly by email.<br>Click a box to email the right department.</p>
+      </div>
+      <div class="contact-card-row">
+
+        <!-- Support Card -->
+        <div class="contact-card support">
+          <div class="contact-card-image">
+            <!-- Envelope SVG (support) -->
+            <svg width="54" height="54" fill="none" viewBox="0 0 24 24">
+              <rect x="2.5" y="5.5" width="19" height="13" rx="2.5" stroke="currentColor" stroke-width="2"/>
+              <path d="M3.5 6.5l8.5 7 8.5-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="contact-card-title">General &amp; Player Support</div>
+          <div class="contact-card-desc">
+            Questions, technical issues, or need help with our games? Our support team is ready to help!
+          </div>
+          <a class="contact-card-email" href="mailto:support@logpostgames.com">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M3.5 6.5l8.5 7 8.5-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            support@logpostgames.com
+          </a>
+        </div>
+
+        <!-- Playtest Card -->
+        <div class="contact-card support">
+          <div class="contact-card-image">
+            <!-- Gamepad SVG (playtest) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" fill="currentColor" class="bi bi-joystick" viewBox="0 0 16 16">
+                <path d="M10 2a2 2 0 0 1-1.5 1.937v5.087c.863.083 1.5.377 1.5.726 0 .414-.895.75-2 .75s-2-.336-2-.75c0-.35.637-.643 1.5-.726V3.937A2 2 0 1 1 10 2"/>
+                <path d="M0 9.665v1.717a1 1 0 0 0 .553.894l6.553 3.277a2 2 0 0 0 1.788 0l6.553-3.277a1 1 0 0 0 .553-.894V9.665c0-.1-.06-.19-.152-.23L9.5 6.715v.993l5.227 2.178a.125.125 0 0 1 .001.23l-5.94 2.546a2 2 0 0 1-1.576 0l-5.94-2.546a.125.125 0 0 1 .001-.23L6.5 7.708l-.013-.988L.152 9.435a.25.25 0 0 0-.152.23"/>
+            </svg>
+          </div>
+          <div class="contact-card-title">Playtesting &amp; Game Feedback</div>
+          <div class="contact-card-desc">
+            Interested in playtesting or sending game feedback? Email our playtest team and help shape our next release!
+          </div>
+          <a class="contact-card-email" href="mailto:playtest@logpostgames.com">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+              <rect x="4" y="9" width="16" height="8" rx="4" stroke="currentColor" stroke-width="2"/>
+              <circle cx="8" cy="13" r="1" fill="currentColor"/>
+              <circle cx="16" cy="13" r="1" fill="currentColor"/>
+              <rect x="10.5" y="11.5" width="3" height="3" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            playtest@logpostgames.com
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="social-icons">
+      <a href="#" class="social-icon" title="Twitter" aria-label="Twitter">
+        <svg width="26" height="26" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M459,151.7c0.32,4.54,0.32,9.11,0.32,13.67c0,139.14-105.89,299.68-299.66,299.68A297.34,297.34,0,0,1,32,423.85a211.76,211.76,0,0,0,25.06,1.47,210.64,210.64,0,0,0,130.59-44.94,105.17,105.17,0,0,1-98.06-72.85,132.36,132.36,0,0,0,19.92,1.6,111.37,111.37,0,0,0,27.6-3.56A105.13,105.13,0,0,1,47,201.77v-1.34a105.68,105.68,0,0,0,47.5,13.19A105.15,105.15,0,0,1,41,86.13a298.44,298.44,0,0,0,216.37,109.84A118.41,118.41,0,0,1,368.61,92c0-2.39-0.05-4.77-0.17-7.13A209.54,209.54,0,0,0,459,151.7Z"/></svg>
+      </a>
+      <a href="#" class="social-icon" title="Instagram" aria-label="Instagram">
+        <svg width="26" height="26" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9S287.7 141 224.1 141zm0 186c-39.4 0-71.1-31.7-71.1-71.1s31.7-71.1 71.1-71.1 71.1 31.7 71.1 71.1-31.7 71.1-71.1 71.1zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.9C383.1 9.9 351.7 1.7 316.4 0 279.8-1.7 168.2-1.7 131.6 0 96.3 1.7 64.9 9.9 38.7 36.2 9.9 64.9 1.7 96.3 0 131.6c-1.7 36-1.7 147.6 0 183.2 1.7 35.3 9.9 66.7 36.2 92.9 28.7 28.8 66.9 36.2 92.9 36.2 36 1.7 147.6 1.7 183.2 0 35.3-1.7 66.7-9.9 92.9-36.2 28.8-28.7 36.2-66.9 36.2-92.9 1.7-36 1.7-147.6 0-183.2zM398.8 388c-7.8 19.6-23.1 35-42.6 42.6-29.5 11.7-99.6 9-132.1 9s-102.6 2.6-132.1-9c-19.6-7.8-35-23.1-42.6-42.6-11.7-29.5-9-99.6-9-132.1s-2.6-102.6 9-132.1c7.8-19.6 23.1-35 42.6-42.6 29.5-11.7 99.6-9 132.1-9s102.6-2.6 132.1 9c19.6 7.8 35 23.1 42.6 42.6 11.7 29.5 9 99.6 9 132.1s2.6 102.6-9 132.1z"/></svg>
+      </a>
+      <a href="#" class="social-icon" title="YouTube" aria-label="YouTube">
+        <svg width="26" height="26" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M549.7 124.1c-6.3-23.7-24.9-42.3-48.6-48.6C456.4 64 288 64 288 64s-168.4 0-213.1 11.5c-23.7 6.3-42.3 24.9-48.6 48.6C16 168.8 16 256 16 256s0 87.2 10.3 131.9c6.3 23.7 24.9 42.3 48.6 48.6C119.6 448 288 448 288 448s168.4 0 213.1-11.5c23.7-6.3 42.3-24.9 48.6-48.6C560 343.2 560 256 560 256s0-87.2-10.3-131.9zM232 336V176l142.7 80L232 336z"/></svg>
+      </a>
+    </div>
+    <small>&copy; 2025 Log Post Games. All rights reserved.</small>
+  </footer>
+</body>
+</html>
