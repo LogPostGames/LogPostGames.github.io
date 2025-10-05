@@ -340,10 +340,31 @@ nav a:hover {
 /* Ensure "Read More"/"More Info" buttons are always placed at the bottom left of their card */
 .card .more-info-btn,
 .game-card-content .more-info-btn {
-  margin-top: auto;          /* Pushes the button to the bottom */
-  margin-left: 24px;         /* Align with content padding (adjust if needed) */
-  margin-bottom: 0;          /* Remove or set to 24px if you want bottom gap */
-  align-self: flex-start;    /* Ensures button aligns left */
+  margin-top: auto;
+  margin-left: 24px;
+  margin-bottom: 0;
+  align-self: flex-start;
+  /* Add main button styles if missing */
+  background: var(--brand-red);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 10px 26px;
+  font-size: 1.03rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(193,18,31,0.10);
+  transition: background var(--transition), transform var(--transition);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.card .more-info-btn:hover,
+.card .more-info-btn:focus {
+  background: #a00e19;
+  color: #fff;
+  transform: translateY(-2px) scale(1.03);
 }
 
 @media (max-width: 600px) {
