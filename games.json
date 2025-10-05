@@ -3,7 +3,7 @@
     "title": "Captains Log",
     "cover": "https://placehold.co/350x160/232629/c1121f?text=Captain's+Log",
     "desc": "Explore the now empty space shuttle and uncover the truth about those who used to live here.",
-    "moreInfoLink": "game-detail-CL.html"
+    "moreInfoLink": "/games/game-detail-CL.html"
   },
   {
     "title": "Tricks of War",
@@ -12,4 +12,3 @@
     "moreInfoLink": "game-detail-ToW.html"
   }
 ]
-
