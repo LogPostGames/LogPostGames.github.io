@@ -23,17 +23,26 @@ const headerHTML = `
 
 // FOOTER HTML
 const footerHTML = `
-  <footer>
-    <div class="social-icons">
-      <a href="#" class="social-icon" title="Twitter" aria-label="Twitter">
-        <svg width="26" height="26" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M459,151.7c0.32,4.54,0.32,9.11,0.32,13.67c0,139.14-105.89,299.68-299.66,299.68A297.34,297.34,0,0,1,32,423.85a211.76,211.76,0,0,0,25.06,1.47,210.64,210.64,0,0,0,130.59-44.94,105.17,105.17,0,0,1-98.06-72.85,132.36,132.36,0,0,0,19.92,1.6,111.37,111.37,0,0,0,27.6-3.56A105.13,105.13,0,0,1,47,201.77v-1.34a105.68,105.68,0,0,0,47.5,13.19A105.15,105.15,0,0,1,41,86.13a298.44,298.44,0,0,0,216.37,109.84A118.41,118.41,0,0,1,368.61,92c0-2.39-0.05-4.77-0.17-7.13A209.54,209.54,0,0,0,459,151.7Z"/></svg>
-      </a>
-      <a href="#" class="social-icon" title="Instagram" aria-label="Instagram">
-        <svg width="26" height="26" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9S287.7 141 224.1 141zm0 186c-39.4 0-71.1-31.7-71.1-71.1s31.7-71.1 71.1-71.1 71.1 31.7 71.1 71.1-31.7 71.1-71.1 71.1zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.9C383.1 9.9 351.7 1.7 316.4 0 279.8-1.7 168.2-1.7 131.6 0 96.3 1.7 64.9 9.9 38.7 36.2 9.9 64.9 1.7 96.3 0 131.6c-1.7 36-1.7 147.6 0 183.2 1.7 35.3 9.9 66.7 36.2 92.9 28.7 28.8 66.9 36.2 92.9 36.2 36 1.7 147.6 1.7 183.2 0 35.3-1.7 66.7-9.9 92.9-36.2 28.8-28.7 36.2-66.9 36.2-92.9 1.7-36 1.7-147.6 0-183.2zM398.8 388c-7.8 19.6-23.1 35-42.6 42.6-29.5 11.7-99.6 9-132.1 9s-102.6 2.6-132.1-9c-19.6-7.8-35-23.1-42.6-42.6-11.7-29.5-9-99.6-9-132.1s-2.6-102.6 9-132.1c7.8-19.6 23.1-35 42.6-42.6 29.5-11.7 99.6-9 132.1-9s102.6-2.6 132.1 9c19.6 7.8 35 23.1 42.6 42.6 11.7 29.5 9 99.6 9 132.1s2.6 102.6-9 132.1z"/></svg>
-      </a>
-      <a href="#" class="social-icon" title="YouTube" aria-label="YouTube">
-        <svg width="26" height="26" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M549.7 124.1c-6.3-23.7-24.9-42.3-48.6-48.6C456.4 64 288 64 288 64s-168.4 0-213.1 11.5c-23.7 6.3-42.3 24.9-48.6 48.6C16 168.8 16 256 16 256s0 87.2 10.3 131.9c6.3 23.7 24.9 42.3 48.6 48.6C119.6 448 288 448 288 448s168.4 0 213.1-11.5c23.7-6.3 42.3-24.9 48.6-48.6C560 343.2 560 256 560 256s0-87.2-10.3-131.9zM232 336V176l142.7 80L232 336z"/></svg>
-      </a>
+  <div class="social-icons" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+        <a href="https://x.com/LogPostGames" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; background: linear-gradient(135deg, #c1121f 0%, #c1121f 100%); border-radius: 15px; padding: 8px; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.transform='translateY(-4px)'; " onmouseout="this.style.transform=''; this.style.filter=''; this.style.animation=''; ">
+           <svg class="niftybutton-twitterx" style="width: 32px; height: 32px; display: block;" data-donate="true" data-tag="twix" data-name="X (Twitter)" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><title>X (Twitter) social icon</title>
+                <g transform="translate(64, 64) scale(0.75, 0.75)">
+                <path d="M403.2 48h78.643l-171.52 196.544L512 488h-158.016l-123.744-161.248L99.136 488H10.112l183.456-210.24L0 48h161.024l111.84 148.288L403.2 48zm-27.52 417.792h43.52L138.368 68.672H91.776z" style="width: 32px; height: 32px; display: block;"></path>
+                </g>
+            </svg>
+        </a>
+        <a href="https://www.instagram.com/p/DOmYTo2j6pQ/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; background: linear-gradient(135deg, #c1121f 0%, #c1121f 100%); border-radius: 15px; padding: 8px; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.transform='translateY(-4px)'; " onmouseout="this.style.transform=''; this.style.filter=''; this.style.animation=''; ">
+            <svg class="niftybutton-instagram" style="width: 32px; height: 32px; display: block;" data-donate="true" data-tag="ins" data-name="Instagram" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><title>Instagram social icon</title>
+                <path d="M256 109.3c47.8 0 53.4 0.2 72.3 1 17.4 0.8 26.9 3.7 33.2 6.2 8.4 3.2 14.3 7.1 20.6 13.4 6.3 6.3 10.1 12.2 13.4 20.6 2.5 6.3 5.4 15.8 6.2 33.2 0.9 18.9 1 24.5 1 72.3s-0.2 53.4-1 72.3c-0.8 17.4-3.7 26.9-6.2 33.2 -3.2 8.4-7.1 14.3-13.4 20.6 -6.3 6.3-12.2 10.1-20.6 13.4 -6.3 2.5-15.8 5.4-33.2 6.2 -18.9 0.9-24.5 1-72.3 1s-53.4-0.2-72.3-1c-17.4-0.8-26.9-3.7-33.2-6.2 -8.4-3.2-14.3-7.1-20.6-13.4 -6.3-6.3-10.1-12.2-13.4-20.6 -2.5-6.3-5.4-15.8-6.2-33.2 -0.9-18.9-1-24.5-1-72.3s0.2-53.4 1-72.3c0.8-17.4 3.7-26.9 6.2-33.2 3.2-8.4 7.1-14.3 13.4-20.6 6.3-6.3 12.2-10.1 20.6-13.4 6.3-2.5 15.8-5.4 33.2-6.2C202.6 109.5 208.2 109.3 256 109.3M256 77.1c-48.6 0-54.7 0.2-73.8 1.1 -19 0.9-32.1 3.9-43.4 8.3 -11.8 4.6-21.7 10.7-31.7 20.6 -9.9 9.9-16.1 19.9-20.6 31.7 -4.4 11.4-7.4 24.4-8.3 43.4 -0.9 19.1-1.1 25.2-1.1 73.8 0 48.6 0.2 54.7 1.1 73.8 0.9 19 3.9 32.1 8.3 43.4 4.6 11.8 10.7 21.7 20.6 31.7 9.9 9.9 19.9 16.1 31.7 20.6 11.4 4.4 24.4 7.4 43.4 8.3 19.1 0.9 25.2 1.1 73.8 1.1s54.7-0.2 73.8-1.1c19-0.9 32.1-3.9 43.4-8.3 11.8-4.6 21.7-10.7 31.7-20.6 9.9-9.9 16.1-19.9 20.6-31.7 4.4-11.4 7.4-24.4 8.3-43.4 0.9-19.1 1.1-25.2 1.1-73.8s-0.2-54.7-1.1-73.8c-0.9-19-3.9-32.1-8.3-43.4 -4.6-11.8-10.7-21.7-20.6-31.7 -9.9-9.9-19.9-16.1-31.7-20.6 -11.4-4.4-24.4-7.4-43.4-8.3C310.7 77.3 304.6 77.1 256 77.1L256 77.1z" style="width: 32px; height: 32px; display: block;"></path>
+                <path d="M256 164.1c-50.7 0-91.9 41.1-91.9 91.9s41.1 91.9 91.9 91.9 91.9-41.1 91.9-91.9S306.7 164.1 256 164.1zM256 315.6c-32.9 0-59.6-26.7-59.6-59.6s26.7-59.6 59.6-59.6 59.6 26.7 59.6 59.6S288.9 315.6 256 315.6z" style="width: 32px; height: 32px; display: block;"></path>
+                <circle cx="351.5" cy="160.5" r="21.5" style="width: 32px; height: 32px; display: block;"></circle>
+            </svg>
+        </a>
+        <a href="https://www.youtube.com/channel/UCNcGTSUp8o8Wf2eMHnGuKeg" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; background: linear-gradient(135deg, #c1121f 0%, #c1121f 100%); border-radius: 15px; padding: 8px; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.transform='translateY(-4px)'; " onmouseout="this.style.transform=''; this.style.filter=''; this.style.animation=''; ">
+                <svg class="niftybutton-youtube" style="width: 32px; height: 32px; display: block;" data-donate="true" data-tag="you" data-name="YouTube" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><title>YouTube social icon</title>
+                <path d="M422.6 193.6c-5.3-45.3-23.3-51.6-59-54 -50.8-3.5-164.3-3.5-215.1 0 -35.7 2.4-53.7 8.7-59 54 -4 33.6-4 91.1 0 124.8 5.3 45.3 23.3 51.6 59 54 50.9 3.5 164.3 3.5 215.1 0 35.7-2.4 53.7-8.7 59-54C426.6 284.8 426.6 227.3 422.6 193.6zM222.2 303.4v-94.6l90.7 47.3L222.2 303.4z" style="width: 32px; height: 32px; display: block;"></path>
+            </svg>
+        </a>
     </div>
     <small>&copy; 2025 Log Post Games. All rights reserved.</small>
   </footer>
