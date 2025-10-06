@@ -64,14 +64,13 @@ function injectFooter() {
 // Optionally, highlight active nav link based on current URL
 function highlightActiveNav() {
   const navLinks = document.querySelectorAll('.navbar nav a');
-  const path = window.location.pathname.replace(/\/$/, '');
+  const path = window.location.pathname.split('/').pop() || 'index.html';
   navLinks.forEach(link => {
-    // Remove all active classes
     link.classList.remove('active');
     link.removeAttribute('aria-current');
-    // Add .active and aria-current if href matches
-    let linkPath = link.getAttribute('href').replace(/\/$/, '');
-    if (linkPath === path || (linkPath === 'index.html' && (path === '' || path.endsWith('/index.html')))) {
+    let linkPath = link.getAttribute('href');
+    // Compare only the filename (e.g., 'news.html')
+    if (linkPath === path) {
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
     }
