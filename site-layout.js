@@ -11,10 +11,10 @@ const headerHTML = `
       </a>
       <nav>
         <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../games.html">Games</a></li>
-          <li><a href="../news.html">News/Blog</a></li>
-          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="news.html">News/Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -65,7 +65,6 @@ function injectFooter() {
 function highlightActiveNav() {
   const navLinks = document.querySelectorAll('.navbar nav a');
   const path = window.location.pathname.replace(/\/$/, '');
-  path.reaplce(/^\/+/, '');
   navLinks.forEach(link => {
     // Remove all active classes
     link.classList.remove('active');
