@@ -65,13 +65,14 @@ function injectFooter() {
 function highlightActiveNav() {
   const navLinks = document.querySelectorAll('.navbar nav a');
   const path = window.location.pathname.replace(/\/$/, '');
+  path.reaplce(/^\/+/, '');
   navLinks.forEach(link => {
     // Remove all active classes
     link.classList.remove('active');
     link.removeAttribute('aria-current');
     // Add .active and aria-current if href matches
     let linkPath = link.getAttribute('href').replace(/\/$/, '');
-    if (linkPath === path || (linkPath === '../index.html' && (path === '' || path.endsWith('/index.html')))) {
+    if (linkPath === path || (linkPath === 'index.html' && (path === '' || path.endsWith('/index.html')))) {
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
     }
