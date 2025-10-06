@@ -172,6 +172,27 @@ nav a:hover {
   transform: translateY(-2px) scale(1.03);
 }
 
+.back-btn {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 1rem;
+  padding: 10px 24px;
+  background: var(--brand-red);
+  color: #fff;
+  border-radius: var(--radius);
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+.back-btn:hover, .back-btn:focus {
+  background: #a00e19;
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-2px) scale(1.03);
+}
+
 /* Section titles & dividers */
 .section-title {
   font-size: 1.6rem;
