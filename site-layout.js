@@ -71,7 +71,7 @@ function highlightActiveNav() {
     link.removeAttribute('aria-current');
     // Add .active and aria-current if href matches
     let linkPath = link.getAttribute('href').replace(/\/$/, '');
-    if (linkPath === path || (linkPath === 'index.html' && (path === '' || path.endsWith('/index.html')))) {
+    if (linkPath === path || (linkPath === '../index.html' && (path === '' || path.endsWith('/index.html')))) {
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
     }
