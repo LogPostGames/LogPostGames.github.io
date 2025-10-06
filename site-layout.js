@@ -64,13 +64,26 @@ function injectFooter() {
 // Optionally, highlight active nav link based on current URL
 function highlightActiveNav() {
   const navLinks = document.querySelectorAll('.navbar nav a');
-  const path = window.location.pathname.split('/').pop() || 'index.html';
+  const currentUrl = window.location.pathname.toLowerCase();
+
   navLinks.forEach(link => {
+    // Remove highlight first
     link.classList.remove('active');
     link.removeAttribute('aria-current');
-    let linkPath = link.getAttribute('href');
-    // Compare only the filename (e.g., 'news.html')
-    if (linkPath === path) {
+
+    // Get the href target (strip leading ./ or /)
+    let linkHref = link.getAttribute('href').replace(/^\.?\//, '').toLowerCase();
+
+    // Special case: Home page (covers both "/" and "index.html")
+    if (linkHref === "index.html" && (currentUrl === "/" || currentUrl.endsWith("/index.html"))) {
+      link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
+    }
+    // Highlight if the URL contains the main chunk, e.g. "games" for any games subpage
+    else if (
+      linkHref !== "index.html" &&
+      currentUrl.includes(linkHref.replace('.html',''))
+    ) {
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
     }
