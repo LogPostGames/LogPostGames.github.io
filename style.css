@@ -696,3 +696,83 @@ footer small {
   .visual-contact-wrapper { gap: 18px; }
   .contact-card-row { flex-direction: column; gap: 1.7rem; align-items: center; }
 }
+.about-section { margin-bottom: 44px; }
+.about-title {
+    font-size: 1.5rem;
+    color: var(--brand-red);
+    font-weight: 700;
+    margin-bottom: 18px;
+    border-left: 4px solid var(--brand-red);
+    padding-left: 12px;
+    letter-spacing: 0.5px;
+}
+.about-lead-row {
+    display: flex;
+    gap: 38px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+.about-portrait {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 8px #0002;
+    background: #232629;
+    margin-bottom: 4px;
+}
+.about-bio {
+    flex: 1 1 250px;
+    min-width: 220px;
+    color: var(--text-main);
+    font-size: 1.08rem;
+    margin-bottom: 8px;
+}
+.core-values-list {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+.core-value-card {
+    background: #232629;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px #0002;
+    padding: 24px 22px;
+    min-width: 220px;
+    flex: 1 1 220px;
+    max-width: 370px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.core-value-title {
+    color: var(--brand-red);
+    font-weight: 700;
+    font-size: 1.09rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 3px;
+}
+.core-value-desc {
+    color: var(--text-main);
+    font-size: 1.01rem;
+}
+.about-vision {
+    background: #181a1b;
+    border-radius: 12px;
+    padding: 18px 22px;
+    font-size: 1.08rem;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px #0002;
+}
+@media (max-width: 800px) {
+    .about-lead-row, .core-values-list {
+    flex-direction: column;
+    gap: 18px;
+    }
+    .core-value-card { max-width: 100%; }
+}
