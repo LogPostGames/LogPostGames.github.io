@@ -1,6 +1,6 @@
 [
   {
-    "title": "Announing Log Post Games!",
+    "title": "A Look Ahead - Q4 2025 Quarterly Review",
     "desc": "I am thrilled to announce the launch of the new independent video game development studio, Log Post Games!.",
     "cover": "https://placehold.co/350x160/232629/c1121f?text=Announcing+Log+Post",
     "link": "/posts/new-game-announcement.html",
@@ -8,11 +8,11 @@
     "tags": ["Dev Updates"]
   },
   {
-    "title": "[Dev Update] Timberbound enters beta!",
-    "desc": "Timberbound has officially reached beta! Read about new features and how to participate in playtesting and feedback.",
+    "title": "Announing Log Post Games!",
+    "desc": "I am thrilled to announce the launch of the new independent video game development studio, Log Post Games!.",
     "cover": "https://placehold.co/350x160/232629/c1121f?text=Announcing+Log+Post",
-    "link": "/posts/timberbound-beta-update.html",
-    "date": "2025-09-20",
+    "link": "/posts/announcing-logpostgames.html",
+    "date": "2025-03-28",
     "tags": ["Dev Updates"]
   }
 ]
