@@ -131,7 +131,7 @@ nav a:hover {
 
 /* Regular text link styled like nav bar links */
 .styled-link {
-  color: var(--text-main);
+  color: var(--brand-red);
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
