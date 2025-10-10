@@ -2,7 +2,7 @@
   {
     "title": "The Blog Post - Q4 2025 Quarterly Review",
     "desc": "I am thrilled to announce the launch of the new independent video game development studio, Log Post Games!.",
-    "cover": "/images/blogpost/blogpost-Q4-2025",
+    "cover": "/images/blogpost/blogpost-Q4-2025.png",
     "link": "/news/blogpost-Q4-2025.html",
     "date": "2025-10-10",
     "tags": ["Blog Post"]
@@ -15,4 +15,5 @@
     "date": "2025-03-28",
     "tags": ["Announcements"]
   }
+
 ]
