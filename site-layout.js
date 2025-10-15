@@ -11,11 +11,11 @@ const headerHTML = `
       </a>
       <nav>
         <ul>
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/games.html">Games</a></li>
-          <li><a href="/news.html">News/Blog</a></li>
-          <li><a href="/about.html">About Us</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/index">Home</a></li>
+          <li><a href="/games">Games</a></li>
+          <li><a href="/news">News/Blog</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </nav>
     </div>
