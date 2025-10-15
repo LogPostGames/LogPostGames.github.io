@@ -311,7 +311,7 @@ nav a:hover {
 .game-card-content .more-info-btn {
   margin-top: auto;
   margin-left: 24px; /* align with card-title and card-desc */
-  margin-bottom: 0;
+  margin-bottom: 18px; /* restore bottom space */
   align-self: flex-start;
   background: var(--brand-red);
   color: #fff;
@@ -368,6 +368,7 @@ nav a:hover {
   .card .more-info-btn,
   .game-card-content .more-info-btn {
     margin-left: 14px;
+    margin-bottom: 12px;
   }
 }
 
