@@ -102,6 +102,24 @@ nav a:hover {
   border-bottom: 2px solid var(--brand-red);
 }
 
+/* Styled regular text link like nav */
+.styled-link {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transition), color var(--transition);
+  cursor: pointer;
+}
+.styled-link:hover,
+.styled-link:focus {
+  color: var(--brand-red);
+  border-bottom: 2px solid var(--brand-red);
+  text-decoration: none;
+}
+
 /* Page wrapper */
 .main-content {
   max-width: 1100px;
@@ -212,31 +230,20 @@ nav a:hover {
   margin-bottom: 24px;
 }
 
+/* Unified card and game card styles, responsive and classic padding restored */
 .card,
 .game-card {
   background: var(--bg-card);
   border-radius: var(--radius);
   box-shadow: 0 2px 8px rgba(0,0,0,0.16);
-  margin-bottom: 16px;
   display: flex;
   flex-direction: column;
-  /* Responsive fix: let height grow as needed */
   height: auto;
   min-height: 0;
   width: 100%;
   max-width: 350px;
-  align-items: stretch;
-}
-
-/* Responsive card content wrapper for news/games */
-.card-content,
-.game-card-content {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  padding: 18px 18px 20px 18px;
-  min-height: 0;
-  width: 100%;
+  align-items: flex-start;
+  margin-bottom: 16px;
 }
 
 /* Card image cover (with aspect ratio for responsiveness) */
@@ -288,7 +295,7 @@ nav a:hover {
   font-weight: 600;
   margin: 18px 0 10px 0;
   color: var(--brand-red);
-  padding: 0;
+  padding: 0 24px;
 }
 
 .card-desc,
@@ -296,14 +303,15 @@ nav a:hover {
   color: var(--text-muted);
   font-size: 1rem;
   margin-bottom: 16px;
-  flex: 1 1 auto;
+  padding: 0 24px;
 }
 
-/* More Info Button Placement */
+/* More Info Button: keep at bottom on desktop/mobile, align with text */
 .card .more-info-btn,
-.card-content .more-info-btn,
 .game-card-content .more-info-btn {
   margin-top: auto;
+  margin-left: 24px; /* align with card-title and card-desc */
+  margin-bottom: 0;
   align-self: flex-start;
   background: var(--brand-red);
   color: #fff;
@@ -320,25 +328,12 @@ nav a:hover {
   display: inline-block;
 }
 .card .more-info-btn:hover,
-.card-content .more-info-btn:hover,
 .game-card-content .more-info-btn:hover,
 .card .more-info-btn:focus,
-.card-content .more-info-btn:focus,
 .game-card-content .more-info-btn:focus {
   background: #a00e19;
   color: #fff;
   transform: translateY(-2px) scale(1.03);
-}
-
-/* Games grid (games.html) */
-.games-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 2rem;
-  margin-top: 32px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 @media (max-width: 900px) {
@@ -348,10 +343,6 @@ nav a:hover {
 }
 
 @media (max-width: 600px) {
-  .cards-row {
-    flex-direction: column;
-    gap: 1.2rem;
-  }
   .card,
   .game-card {
     max-width: 100%;
@@ -367,10 +358,28 @@ nav a:hover {
     max-height: 220px;
     border-radius: 8px 8px 0 0;
   }
-  .card-content,
-  .game-card-content {
-    padding: 14px 10px 16px 10px;
+  .card-title,
+  .game-title,
+  .card-desc,
+  .game-desc {
+    padding-left: 14px;
+    padding-right: 14px;
   }
+  .card .more-info-btn,
+  .game-card-content .more-info-btn {
+    margin-left: 14px;
+  }
+}
+
+/* Games grid (games.html) */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 32px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* News/blog listing (news.html) */
@@ -530,4 +539,132 @@ footer small {
     margin-bottom: 16px;
     height: auto;
   }
+}
+
+/* --- Visual Contact CTA Page Styles --- */
+.visual-contact-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 36px 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+}
+.visual-contact-header {
+  text-align: center;
+  margin-bottom: 14px;
+}
+.visual-contact-header h1 {
+  color: var(--brand-red);
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.visual-contact-header p {
+  color: var(--text-muted);
+  font-size: 1.14rem;
+  margin-top: 0;
+}
+.contact-card-row {
+  display: flex;
+  gap: 2.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.contact-card {
+  flex: 1 1 320px;
+  max-width: 420px;
+  min-width: 260px;
+  background: var(--bg-card);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 18px #0002;
+  padding: 32px 24px 24px 24px;
+  position: relative;
+  overflow: hidden;
+  border: 2.5px solid transparent;
+  transition: border-color 0.18s;
+}
+.contact-card.support {
+  border-color: var(--brand-red);
+  box-shadow: 0 2px 18px #c1121f22;
+}
+.contact-card.playtest {
+  border-color: var(--brand-orange);
+  box-shadow: 0 2px 18px #eb5e2822;
+}
+.contact-card-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 14px;
+  margin-bottom: 24px;
+  background: var(--brand-red-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.7rem;
+  color: var(--brand-red);
+  box-shadow: 0 2px 8px #0002;
+}
+.contact-card.playtest .contact-card-image {
+  color: var(--brand-orange);
+  background: var(--brand-orange-bg);
+}
+.contact-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--brand-red);
+  letter-spacing: 0.5px;
+}
+.contact-card.playtest .contact-card-title {
+  color: var(--brand-orange);
+}
+.contact-card-desc {
+  color: var(--text-main);
+  font-size: 1.05rem;
+  text-align: center;
+  margin-bottom: 20px;
+  min-height: 48px;
+  line-height: 1.6;
+}
+.contact-card-email {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--brand-red-bg);
+  color: var(--brand-red);
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-top: 2px;
+  margin-bottom: 12px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.18s, color 0.18s;
+  border: 1.5px solid var(--brand-red);
+  box-shadow: 0 1px 6px #c1121f11;
+}
+.contact-card-email:hover, .contact-card-email:focus {
+  background: var(--brand-red);
+  color: #fff;
+}
+.contact-card.playtest .contact-card-email {
+  background: var(--brand-orange-bg);
+  color: var(--brand-orange);
+  border-color: var(--brand-orange);
+  box-shadow: 0 1px 6px #eb5e2822;
+}
+.contact-card.playtest .contact-card-email:hover,
+.contact-card.playtest .contact-card-email:focus {
+  background: var(--brand-orange);
+  color: #181a1b;
+}
+@media (max-width: 900px) {
+  .visual-contact-wrapper { gap: 18px; }
+  .contact-card-row { flex-direction: column; gap: 1.7rem; align-items: center; }
 }
