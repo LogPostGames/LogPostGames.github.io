@@ -1,10 +1,5 @@
 /* 
   style.css - Central stylesheet for Log Post Games website
-
-  --- CHANGES included for:
-  - News/blog sidebar always full height of main content area (flex stretch)
-  - Blog list stretches and aligns with sidebar
-  - Contact-alt visual CTA card styles (support/playtest distinction, CTA boxes, icons)
 */
 
 /* Reset and base styles */
@@ -71,7 +66,6 @@ header {
   text-decoration: none;
 }
 
-/* Logo image beside title */
 .logo img {
   height: 38px;
   width: auto;
@@ -129,24 +123,6 @@ nav a:hover {
   }
 }
 
-/* Regular text link styled like nav bar links */
-.styled-link {
-  color: var(--brand-red);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  padding: 4px 0;
-  border-bottom: 2px solid transparent;
-  transition: border-color var(--transition), color var(--transition);
-  cursor: pointer;
-}
-
-.styled-link:hover,
-.styled-link:focus {
-  color: var(--brand-red);
-  border-bottom: 2px solid var(--brand-red);
-  text-decoration: none;
-}
 /* Hero */
 .hero {
   display: flex;
@@ -155,22 +131,39 @@ nav a:hover {
   justify-content: center;
   padding: 56px 0 36px 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 340px;
+  z-index: 1;
 }
-
+.hero-parallax-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('images/your-parallax-image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.45;
+  pointer-events: none;
+  transition: background-position 0.3s;
+}
+.hero > *:not(.hero-parallax-bg) {
+  position: relative;
+  z-index: 2;
+}
 .hero-title {
   font-size: 2.4rem;
   font-weight: 700;
   margin-bottom: 12px;
   letter-spacing: 1px;
 }
-
 .hero-subtitle {
   color: var(--text-muted);
   font-size: 1.2rem;
   margin-bottom: 32px;
   max-width: 600px;
 }
-
 .cta-btn {
   background: var(--brand-red);
   color: #fff;
@@ -183,31 +176,11 @@ nav a:hover {
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(193,18,31,0.15);
   transition: background var(--transition), transform var(--transition);
+  text-decoration: none;
+  display: inline-block;
 }
-
 .cta-btn:hover, .cta-btn:focus {
   background: #a00e19;
-  transform: translateY(-2px) scale(1.03);
-}
-
-.back-btn {
-  margin-top: 0;
-  margin-bottom: 24px;
-  font-size: 1rem;
-  padding: 10px 24px;
-  background: var(--brand-red);
-  color: #fff;
-  border-radius: var(--radius);
-  border: none;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-decoration: none;
-  transition: background var(--transition), color var(--transition), transform var(--transition);
-}
-.back-btn:hover, .back-btn:focus {
-  background: #a00e19;
-  color: #fff;
-  text-decoration: none;
   transform: translateY(-2px) scale(1.03);
 }
 
@@ -222,7 +195,6 @@ nav a:hover {
   border-left: 4px solid var(--brand-red);
   padding-left: 12px;
 }
-
 .divider {
   width: 42px;
   height: 3px;
@@ -240,41 +212,56 @@ nav a:hover {
   margin-bottom: 24px;
 }
 
-.card {
+.card,
+.game-card {
   background: var(--bg-card);
   border-radius: var(--radius);
   box-shadow: 0 2px 8px rgba(0,0,0,0.16);
-  padding: 0 0 24px 0;
-  flex: 1 1 240px;
-  min-width: 240px;
-  max-width: 350px;
+  margin-bottom: 16px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 16px;
-  overflow: hidden;
-  height: 100%; /* ensure consistent card height for auto-bottom alignment */
-  position: relative;
+  /* Responsive fix: let height grow as needed */
+  height: auto;
+  min-height: 0;
+  width: 100%;
+  max-width: 350px;
+  align-items: stretch;
 }
 
-.card-image-cover {
+/* Responsive card content wrapper for news/games */
+.card-content,
+.game-card-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 18px 20px 18px;
+  min-height: 0;
   width: 100%;
-  height: 160px;
+}
+
+/* Card image cover (with aspect ratio for responsiveness) */
+.card-image-cover,
+.game-card .card-image-cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
   background: #25282b;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  position: relative; /* for news tag badge */
+  position: relative;
+  border-radius: 8px 8px 0 0;
 }
 
-.card-image-cover .cover-img {
+.card-image-cover .cover-img,
+.game-card .cover-img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   border-bottom: 2px solid var(--brand-red);
+  border-radius: 8px 8px 0 0;
 }
 
 /* News tag badge for top-left of image */
@@ -295,95 +282,29 @@ nav a:hover {
   user-select: none;
 }
 
-.card .card-title {
+.card-title,
+.game-title {
   font-size: 1.2rem;
   font-weight: 600;
   margin: 18px 0 10px 0;
   color: var(--brand-red);
-  padding: 0 24px;
+  padding: 0;
 }
 
-.card .card-desc {
+.card-desc,
+.game-desc {
   color: var(--text-muted);
   font-size: 1rem;
   margin-bottom: 16px;
-  padding: 0 24px;
+  flex: 1 1 auto;
 }
 
-/* Games grid (games.html) */
-.games-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 2rem;
-  margin-top: 32px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.game-card {
-  background: var(--bg-card);
-  border-radius: var(--radius);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.16);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  max-width: 350px;
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.game-card .card-image-cover {
-  width: 100%;
-  height: 170px;
-  background: #25282b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-}
-
-.game-card .cover-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-bottom: 2px solid var(--brand-red);
-}
-
-.game-card-content {
-  padding: 18px 18px 20px 18px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.game-title {
-  font-size: 1.12rem;
-  font-weight: 600;
-  color: var(--brand-red);
-  margin: 0 0 8px 0;
-}
-
-.game-desc {
-  color: var(--text-muted);
-  font-size: 0.98rem;
-  margin-bottom: 16px;
-  flex: 1;
-}
-
-/* Ensure "Read More"/"More Info" buttons are always placed at the bottom left of their card */
+/* More Info Button Placement */
 .card .more-info-btn,
+.card-content .more-info-btn,
 .game-card-content .more-info-btn {
   margin-top: auto;
-  margin-left: 24px;
-  margin-bottom: 0;
   align-self: flex-start;
-  /* Add main button styles if missing */
   background: var(--brand-red);
   color: #fff;
   border: none;
@@ -398,36 +319,38 @@ nav a:hover {
   text-decoration: none;
   display: inline-block;
 }
-
 .card .more-info-btn:hover,
-.card .more-info-btn:focus {
+.card-content .more-info-btn:hover,
+.game-card-content .more-info-btn:hover,
+.card .more-info-btn:focus,
+.card-content .more-info-btn:focus,
+.game-card-content .more-info-btn:focus {
   background: #a00e19;
   color: #fff;
   transform: translateY(-2px) scale(1.03);
 }
 
-@media (max-width: 600px) {
-  .card, .game-card {
-    max-width: 100%;
-    height: auto; /* On mobile, allow height to shrink if needed */
+/* Games grid (games.html) */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 32px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 900px) {
+  .cards-row {
+    gap: 1.2rem;
   }
 }
 
-/* --- Mobile Fix: Make images flexible and less tall on small screens --- */
 @media (max-width: 600px) {
-  .card-image-cover,
-  .game-card .card-image-cover {
-    height: 42vw;         /* scales with viewport width; tweak as needed */
-    min-height: 120px;
-    max-height: 220px;
-    border-radius: 8px 8px 0 0;
-  }
-  .card-image-cover .cover-img,
-  .game-card .cover-img {
-    border-radius: 8px 8px 0 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .cards-row {
+    flex-direction: column;
+    gap: 1.2rem;
   }
   .card,
   .game-card {
@@ -435,6 +358,18 @@ nav a:hover {
     min-width: 0;
     margin-right: 0;
     margin-left: 0;
+    height: auto;
+  }
+  .card-image-cover,
+  .game-card .card-image-cover {
+    aspect-ratio: 16 / 9;
+    min-height: 120px;
+    max-height: 220px;
+    border-radius: 8px 8px 0 0;
+  }
+  .card-content,
+  .game-card-content {
+    padding: 14px 10px 16px 10px;
   }
 }
 
@@ -487,8 +422,8 @@ nav a:hover {
 .news-layout {
   display: flex;
   gap: 2.5rem;
-  align-items: stretch; /* Ensures children stretch equally in height */
-  min-height: 60vh;     /* Optional: ensures a minimum height */
+  align-items: stretch;
+  min-height: 60vh;
 }
 
 .sidebar {
@@ -501,7 +436,7 @@ nav a:hover {
   margin-top: 8px;
   flex-shrink: 0;
   height: 100%;
-  align-self: stretch;   /* This line makes sidebar stretch to parent height */
+  align-self: stretch;
   display: flex;
   flex-direction: column;
 }
@@ -584,7 +519,6 @@ footer small {
   overflow: hidden;
 }
 
-/* Responsive tweaks */
 @media (max-width: 900px) {
   .news-layout {
     flex-direction: column;
@@ -594,371 +528,6 @@ footer small {
   .sidebar {
     width: 100%;
     margin-bottom: 16px;
-    height: auto; /* Reset for stacked layout */
-  }
-}
-
-@media (max-width: 600px) {
-  .cards-row {
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-  .sidebar {
-    width: 100%;
-    margin-bottom: 16px;
-  }
-  .card, .game-card {
-    max-width: 100%;
-  }
-}
-
-/* --- Visual Contact CTA Page Styles --- */
-.visual-contact-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 36px 0 32px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 38px;
-}
-.visual-contact-header {
-  text-align: center;
-  margin-bottom: 14px;
-}
-.visual-contact-header h1 {
-  color: var(--brand-red);
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-}
-.visual-contact-header p {
-  color: var(--text-muted);
-  font-size: 1.14rem;
-  margin-top: 0;
-}
-.contact-card-row {
-  display: flex;
-  gap: 2.8rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.contact-card {
-  flex: 1 1 320px;
-  max-width: 420px;
-  min-width: 260px;
-  background: var(--bg-card);
-  border-radius: 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 2px 18px #0002;
-  padding: 32px 24px 24px 24px;
-  position: relative;
-  overflow: hidden;
-  border: 2.5px solid transparent;
-  transition: border-color 0.18s;
-}
-.contact-card.support {
-  border-color: var(--brand-red);
-  box-shadow: 0 2px 18px #c1121f22;
-}
-.contact-card.playtest {
-  border-color: var(--brand-orange);
-  box-shadow: 0 2px 18px #eb5e2822;
-}
-.contact-card-image {
-  width: 80px;
-  height: 80px;
-  border-radius: 14px;
-  margin-bottom: 24px;
-  background: var(--brand-red-bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.7rem;
-  color: var(--brand-red);
-  box-shadow: 0 2px 8px #0002;
-}
-.contact-card.playtest .contact-card-image {
-  color: var(--brand-orange);
-  background: var(--brand-orange-bg);
-}
-.contact-card-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: var(--brand-red);
-  letter-spacing: 0.5px;
-}
-.contact-card.playtest .contact-card-title {
-  color: var(--brand-orange);
-}
-.contact-card-desc {
-  color: var(--text-main);
-  font-size: 1.05rem;
-  text-align: center;
-  margin-bottom: 20px;
-  min-height: 48px;
-  line-height: 1.6;
-}
-.contact-card-email {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--brand-red-bg);
-  color: var(--brand-red);
-  font-weight: 700;
-  font-size: 1.05rem;
-  border-radius: 10px;
-  padding: 10px 20px;
-  margin-top: 2px;
-  margin-bottom: 12px;
-  text-decoration: none;
-  letter-spacing: 0.02em;
-  transition: background 0.18s, color 0.18s;
-  border: 1.5px solid var(--brand-red);
-  box-shadow: 0 1px 6px #c1121f11;
-}
-.contact-card-email:hover, .contact-card-email:focus {
-  background: var(--brand-red);
-  color: #fff;
-}
-.contact-card.playtest .contact-card-email {
-  background: var(--brand-orange-bg);
-  color: var(--brand-orange);
-  border-color: var(--brand-orange);
-  box-shadow: 0 1px 6px #eb5e2822;
-}
-.contact-card.playtest .contact-card-email:hover,
-.contact-card.playtest .contact-card-email:focus {
-  background: var(--brand-orange);
-  color: #181a1b;
-}
-@media (max-width: 900px) {
-  .visual-contact-wrapper { gap: 18px; }
-  .contact-card-row { flex-direction: column; gap: 1.7rem; align-items: center; }
-}
-.about-section { margin-bottom: 44px; }
-.about-title {
-    font-size: 1.5rem;
-    color: var(--brand-red);
-    font-weight: 700;
-    margin-bottom: 18px;
-    border-left: 4px solid var(--brand-red);
-    padding-left: 12px;
-    letter-spacing: 0.5px;
-}
-.about-lead-row {
-    display: flex;
-    gap: 38px;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    margin-bottom: 24px;
-}
-.about-portrait {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 2px 8px #0002;
-    background: #232629;
-    margin-bottom: 4px;
-}
-.about-bio {
-    flex: 1 1 250px;
-    min-width: 220px;
-    color: var(--text-main);
-    font-size: 1.08rem;
-    margin-bottom: 8px;
-}
-.core-values-list {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
-    margin-top: 18px;
-    margin-bottom: 8px;
-}
-.core-value-card {
-    background: #232629;
-    border-radius: 14px;
-    box-shadow: 0 2px 8px #0002;
-    padding: 24px 22px;
-    min-width: 220px;
-    flex: 1 1 220px;
-    max-width: 370px;
-    margin-bottom: 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-.core-value-title {
-    color: var(--brand-red);
-    font-weight: 700;
-    font-size: 1.09rem;
-    letter-spacing: 0.04em;
-    margin-bottom: 3px;
-}
-.core-value-desc {
-    color: var(--text-main);
-    font-size: 1.01rem;
-}
-.about-vision {
-    background: #181a1b;
-    border-radius: 12px;
-    padding: 18px 22px;
-    font-size: 1.08rem;
-    color: var(--text-main);
-    margin-bottom: 12px;
-    box-shadow: 0 2px 8px #0002;
-}
-@media (max-width: 800px) {
-    .about-lead-row, .core-values-list {
-    flex-direction: column;
-    gap: 18px;
-    }
-    .core-value-card { max-width: 100%; }
-}
-/* Badge for top-left tag */
-.news-tag-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: var(--brand-red, #c1121f);
-    color: #fff;
-    font-size: 0.86rem;
-    font-weight: 600;
-    padding: 5px 14px;
-    border-radius: 18px;
-    box-shadow: 0 2px 8px #0002;
-    z-index: 3;
-    letter-spacing: 0.02em;
-    pointer-events: none;
-    user-select: none;
-}
-.card-image-cover {
-    position: relative;
-}
-.tag-link.active {
-    color: var(--brand-red);
-    font-weight: 700;
-    text-decoration: underline;
-}
-.presskit-section { margin-bottom: 44px; }
-.presskit-title {
-    font-size: 1.5rem;
-    color: var(--brand-red);
-    font-weight: 700;
-    margin-bottom: 18px;
-    border-left: 4px solid var(--brand-red);
-    padding-left: 12px;
-    letter-spacing: 0.5px;
-}
-.logo-row {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 16px;
-}
-.logo-tile {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 1px 8px #0002;
-    padding: 18px 28px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 180px;
-    max-width: 260px;
-}
-.logo-tile.dark {
-    background: #232629;
-}
-.logo-tile img {
-    max-width: 160px;
-    max-height: 80px;
-    margin-bottom: 10px;
-}
-.logo-tile .logo-label {
-    font-size: 1rem;
-    color: var(--text-muted);
-    margin-top: 2px;
-}
-.presskit-boilerplate-short {
-    font-size: 1.08rem;
-    background: #232629;
-    border-radius: 8px;
-    padding: 18px 22px;
-    color: var(--brand-red);
-    font-weight: 600;
-    margin-bottom: 14px;
-    display: inline-block;
-}
-.presskit-boilerplate-long {
-    color: var(--text-main);
-    font-size: 1.06rem;
-    margin-bottom: 8px;
-    background: #181a1b;
-    border-radius: 8px;
-    padding: 18px 22px;
-    display: block;
-}
-.presskit-contact-box {
-    background: var(--brand-red-bg, #2e2122);
-    color: var(--brand-red);
-    border-radius: 10px;
-    padding: 16px 24px;
-    font-size: 1.07rem;
-    font-weight: 600;
-    box-shadow: 0 2px 8px #c1121f11;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-.presskit-contact-box svg {
-    vertical-align: middle;
-    margin-right: 7px;
-}
-.presskit-gallery {
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-.presskit-gallery img {
-    border-radius: 10px;
-    box-shadow: 0 2px 12px #0003;
-    max-width: 320px;
-    width: 100%;
     height: auto;
-    margin-bottom: 8px;
-    background: #232629;
-}
-.fact-sheet-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 16px;
-    background: #232629;
-    border-radius: 10px;
-    overflow: hidden;
-}
-.fact-sheet-table th, .fact-sheet-table td {
-    text-align: left;
-    padding: 10px 14px;
-    border-bottom: 1px solid #232629;
-    font-size: 1rem;
-}
-.fact-sheet-table th {
-    color: var(--brand-red);
-    background: #181a1b;
-    width: 160px;
-    font-weight: 600;
-}
-.fact-sheet-table tr:last-child td { border-bottom: none; }
-@media (max-width: 900px) {
-    .logo-row, .presskit-gallery { flex-direction: column; gap: 16px; }
-    .logo-tile { max-width: 100%; }
-    .presskit-gallery img { max-width: 100%; }
+  }
 }
