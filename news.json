@@ -1,5 +1,13 @@
 [
   {
+    "title": "The Blog Post - Q4 2025 Quarterly Review",
+    "desc": "Dailing In",
+    "cover": "/images/blogpost/blogpost-Q4-2025.png",
+    "link": "/news/blogpost-Q4-2025.html",
+    "date": "2025-01-01",
+    "tags": ["Quarterly Review"]
+  },
+  {
     "title": "The Blog Post - Q3 2025 Quarterly Review",
     "desc": "A new website and TWO games?",
     "cover": "/images/blogpost/blogpost-Q3-2025.png",
