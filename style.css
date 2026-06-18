@@ -1,5 +1,4 @@
-/* 
-  style.css - Central stylesheet for Log Post Games website
+/* style.css - Central stylesheet for Log Post Games website
 */
 
 /* Reset and base styles */
@@ -113,11 +112,19 @@ nav a:hover {
   transition: border-color var(--transition), color var(--transition);
   cursor: pointer;
 }
+
 .styled-link:hover,
-.styled-link:focus {
+.styled-link:focus-visible {
   color: var(--brand-red);
   border-bottom: 2px solid var(--brand-red);
   text-decoration: none;
+}
+
+/* Removes the persistent highlight and browser ring on click */
+.styled-link:focus:not(:focus-visible) {
+  outline: none;
+  color: var(--text-main);
+  border-bottom: 2px solid transparent;
 }
 
 /* Page wrapper */
@@ -223,7 +230,7 @@ nav a:hover {
 }
 
 .divider-flex {
-  width: 100%; /* Changed from 42px to 100% */
+  width: 100%;
   height: 3px;
   background: var(--brand-red);
   margin: 18px 0 28px 0;
@@ -319,8 +326,8 @@ nav a:hover {
 .card .more-info-btn,
 .game-card-content .more-info-btn {
   margin-top: auto;
-  margin-left: 24px; /* align with card-title and card-desc */
-  margin-bottom: 18px; /* restore bottom space */
+  margin-left: 24px;
+  margin-bottom: 18px;
   align-self: flex-start;
   background: var(--brand-red);
   color: #fff;
@@ -486,11 +493,19 @@ nav a:hover {
 }
 
 .sidebar-link:hover,
-.sidebar-link:focus,
+.sidebar-link:focus-visible,
 .tag-link.active {
   color: var(--brand-red);
   font-weight: 700;
   text-decoration: underline;
+}
+
+/* Removes the persistent highlight and browser ring on click */
+.sidebar-link:focus:not(:focus-visible) {
+  outline: none;
+  color: var(--text-muted);
+  font-weight: normal;
+  text-decoration: none;
 }
 
 /* Footer */
@@ -678,6 +693,7 @@ footer small {
   .visual-contact-wrapper { gap: 18px; }
   .contact-card-row { flex-direction: column; gap: 1.7rem; align-items: center; }
 }
+
 /* About Us page specific */
 .about-section {
   margin-bottom: 44px;
@@ -774,13 +790,13 @@ footer small {
 }
 
 .feature-card {
-  flex: 1 1 280px; /* Adjusts width based on screen size */
+  flex: 1 1 280px;
   max-width: 350px;
   background: var(--bg-card);
   border-radius: 14px;
   padding: 32px 24px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  border: 1px solid #333; /* Adds subtle separation */
+  border: 1px solid #333;
   transition: transform 0.2s;
 }
 
