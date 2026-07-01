@@ -106,7 +106,6 @@ nav a:hover {
   color: var(--brand-red);
   text-decoration: underline;
   font-weight: 400;
-  font-size: 1rem;
   padding: 4px 0;
   border-bottom: 2px solid transparent;
   transition: border-color var(--transition), color var(--transition);
