@@ -104,8 +104,8 @@ nav a:hover {
 /* Styled regular text link like nav */
 .styled-link {
   color: var(--brand-red);
-  text-decoration: none;
-  font-weight: 500;
+  text-decoration: underline;
+  font-weight: 400;
   font-size: 1rem;
   padding: 4px 0;
   border-bottom: 2px solid transparent;
