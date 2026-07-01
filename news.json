@@ -1,5 +1,20 @@
 [
   {
+    "title": "We Went To Origins - Q2 2026 Quarterly Review",
+    "desc": "Can you believe we’re already half way through 2026?",
+    "cover": "/images/ToWCover.png",
+    "link": "/news/blogpost-Q2-2026",
+    "date": "2025-07-01",
+    "tags": ["Quarterly Review"]
+  },{
+    "title": "Incoming Release - Q1 2026 Quarterly Review",
+    "desc": "Launching Tricks of War?",
+    "cover": "/images/blogpost/BlogPost.png",
+    "link": "/news/blogpost-Q1-2026",
+    "date": "2025-04-01",
+    "tags": ["Quarterly Review"]
+  },
+  {
     "title": "The Blog Post - Q4 2025 Quarterly Review",
     "desc": "Dailing In",
     "cover": "/images/blogpost/blogpost-Q4-2025.png",
