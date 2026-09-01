@@ -15,7 +15,7 @@ const headerHTML = `
           <li><a href="/games">Games</a></li>
           <li><a href="/news">News/Blog</a></li>
           <li><a href="/about">About Us</a></li>
-          <li><a href="/press-kit">Press</a></li>
+          //<li><a href="/press-kit">Press</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
       </nav>
