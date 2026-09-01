@@ -352,20 +352,28 @@ nav a:hover {
 }
 
 @media (max-width: 900px) {
-  .cards-row {
-    gap: 1.2rem;
-  }
+.cards-row {
+  display: flex;
+  gap: 1.5rem; /* Reduced slightly to ensure comfortable fit */
+  flex-wrap: nowrap; /* Forces all cards to remain on the same row */
+  margin-bottom: 24px;
 }
 
 @media (max-width: 600px) {
-  .card,
-  .game-card {
-    max-width: 100%;
-    min-width: 0;
-    margin-right: 0;
-    margin-left: 0;
-    height: auto;
-  }
+.card,
+.game-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.16);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 0;
+  flex: 1 1 0; /* Allows each card to shrink and grow equally */
+  width: 100%;
+  max-width: none; /* Removed the 350px cap */
+  align-items: flex-start;
+}
   .card-image-cover,
   .game-card .card-image-cover {
     aspect-ratio: 16 / 9;
