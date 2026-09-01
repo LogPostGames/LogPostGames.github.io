@@ -1,18 +1,23 @@
 [
   {
     "title": "We Went To Origins - Q2 2026 Quarterly Review",
-    "desc": "Can you believe we’re already half way through 2026?",
+    "desc": "Can you believe we're already half way through 2026?",
     "cover": "/images/ToWCover.png",
     "link": "/news/blogpost-Q2-2026",
     "date": "2025-07-01",
-    "tags": ["Quarterly Review"]
-  },{
+    "tags": [
+      "Quarterly Review"
+    ]
+  },
+  {
     "title": "Incoming Release - Q1 2026 Quarterly Review",
     "desc": "Launching Tricks of War?",
     "cover": "/images/blogpost/BlogPost.png",
     "link": "/news/blogpost-Q1-2026",
     "date": "2025-04-01",
-    "tags": ["Quarterly Review"]
+    "tags": [
+      "Quarterly Review"
+    ]
   },
   {
     "title": "The Blog Post - Q4 2025 Quarterly Review",
@@ -20,7 +25,9 @@
     "cover": "/images/blogpost/blogpost-Q4-2025.png",
     "link": "/news/blogpost-Q4-2025",
     "date": "2025-01-01",
-    "tags": ["Quarterly Review"]
+    "tags": [
+      "Quarterly Review"
+    ]
   },
   {
     "title": "The Blog Post - Q3 2025 Quarterly Review",
@@ -28,7 +35,9 @@
     "cover": "/images/blogpost/blogpost-Q3-2025.png",
     "link": "/news/blogpost-Q3-2025",
     "date": "2025-10-10",
-    "tags": ["Quarterly Review"]
+    "tags": [
+      "Quarterly Review"
+    ]
   },
   {
     "title": "Announing Log Post Games!",
@@ -36,9 +45,8 @@
     "cover": "/images/LPGHorizontal.png",
     "link": "/news/announcing-logpost",
     "date": "2025-03-28",
-    "tags": ["Announcements"]
+    "tags": [
+      "Announcements"
+    ]
   }
-
 ]
-
-

@@ -82,7 +82,7 @@
           .then(news => {
             const newsContainer = document.getElementById('home-news-preview');
             if (!newsContainer) return;
-            newsContainer.innerHTML = news.slice(0, 2).map(post => `
+            newsContainer.innerHTML = news.slice(0, 3).map(post => `
               <div class="card">
                 <div class="card-image-cover">
                   <img src="${post.cover}" alt="${post.title}" class="cover-img">

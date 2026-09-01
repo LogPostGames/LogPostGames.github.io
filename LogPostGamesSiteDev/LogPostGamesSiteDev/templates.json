@@ -1,0 +1,19 @@
+{
+  "New Blog Post": {
+    "variables": [ "title", "author", "desc", "content" ],
+    "allowed_tags": [
+      "Quarterly Review",
+      "Announcements"
+    ],
+    "files": {
+      "C:\\Users\\munch\\Documents\\LogPostGames\\LogPostGames.github.io\\templates\\blog-post-template.html": "C:\\Users\\munch\\Documents\\LogPostGames\\LogPostGames.github.io\\news\\{title}.html"
+    },
+    "index_file": "C:\\Users\\munch\\Documents\\LogPostGames\\LogPostGames.github.io\\news.json"
+  },
+  "New Game": {
+    "variables": [ "game_name", "genre" ],
+    "files": {
+      "C:\\Users\\munch\\Documents\\LogPostGames\\LogPostGames.github.io\\templates\\game-detail-template.html": "C:\\Users\\munch\\Documents\\LogPostGames\\LogPostGames.github.io\\games\\{title}.html"
+    }
+  }
+}
