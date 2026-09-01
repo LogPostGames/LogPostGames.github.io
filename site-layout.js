@@ -2,6 +2,8 @@
 // JavaScript to dynamically generate and inject the website header and footer
 
 // HEADER HTML
+// <li><a href="/press-kit">Press</a></li>
+
 const headerHTML = `
   <header>
     <div class="navbar">
@@ -15,7 +17,6 @@ const headerHTML = `
           <li><a href="/games">Games</a></li>
           <li><a href="/news">News/Blog</a></li>
           <li><a href="/about">About Us</a></li>
-          //<li><a href="/press-kit">Press</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
       </nav>
