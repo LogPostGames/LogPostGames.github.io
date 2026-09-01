@@ -351,15 +351,15 @@ nav a:hover {
   transform: translateY(-2px) scale(1.03);
 }
 
-@media (max-width: 900px) {
+/* Cards & grid layouts */
 .cards-row {
-  display: flex;
-  gap: 1.5rem; /* Reduced slightly to ensure comfortable fit */
-  flex-wrap: nowrap; /* Forces all cards to remain on the same row */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Strictly forces 3 equal columns */
+  gap: 1.5rem;
   margin-bottom: 24px;
 }
 
-@media (max-width: 600px) {
+/* Unified card and game card styles */
 .card,
 .game-card {
   background: var(--bg-card);
@@ -367,11 +367,10 @@ nav a:hover {
   box-shadow: 0 2px 8px rgba(0,0,0,0.16);
   display: flex;
   flex-direction: column;
-  height: auto;
-  min-height: 0;
-  flex: 1 1 0; /* Allows each card to shrink and grow equally */
+  height: 100%; /* Ensures cards stretch to equal height */
   width: 100%;
-  max-width: none; /* Removed the 350px cap */
+  max-width: none; /* Removes the 350px cap */
+  margin-bottom: 0; /* Let the grid gap handle spacing */
   align-items: flex-start;
 }
   .card-image-cover,
