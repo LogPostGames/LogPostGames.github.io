@@ -1,7 +1,7 @@
-/* style.css - Central stylesheet for Log Post Games website
-*/
+/* ==========================================================================
+   1. VARIABLES & BASE RESET
+   ========================================================================== */
 
-/* Reset and base styles */
 *,
 *::before,
 *::after {
@@ -19,9 +19,9 @@
   --brand-blue: #669bbc;
   --brand-orange: #eb5e28;
   --brand-orange-bg: #2d2220;
-  --shadow: 0 4px 24px rgba(0,0,0,0.25);
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
   --radius: 8px;
-  --transition: 0.2s cubic-bezier(.4,0,.2,1);
+  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --font-main: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
 }
 
@@ -35,7 +35,105 @@ html, body {
   line-height: 1.6;
 }
 
-/* Header & Navigation */
+.main-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 96px 24px 48px 24px;
+}
+
+/* Screen reader utility */
+.sr-only {
+  position: absolute;
+  left: -100vw;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+
+/* ==========================================================================
+   2. REUSABLE UI & TYPOGRAPHY
+   ========================================================================== */
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--brand-red);
+  margin-top: 48px;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  border-left: 4px solid var(--brand-red);
+  padding-left: 12px;
+}
+
+.styled-link {
+  color: var(--brand-red);
+  text-decoration: underline;
+  font-weight: 400;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transition), color var(--transition);
+  cursor: pointer;
+}
+
+.styled-link:hover,
+.styled-link:focus-visible {
+  color: var(--brand-red);
+  border-bottom: 2px solid var(--brand-red);
+  text-decoration: none;
+}
+
+.styled-link:focus:not(:focus-visible) {
+  outline: none;
+  color: var(--text-main);
+  border-bottom: 2px solid transparent;
+}
+
+.cta-btn {
+  background: var(--brand-red);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(193, 18, 31, 0.15);
+  transition: background var(--transition), transform var(--transition);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta-btn:hover, 
+.cta-btn:focus {
+  background: #a00e19;
+  transform: translateY(-2px) scale(1.03);
+}
+
+.divider {
+  width: 42px;
+  height: 3px;
+  background: var(--brand-red);
+  margin: 18px 0 28px 0;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+.divider-flex {
+  width: 100%;
+  height: 3px;
+  background: var(--brand-red);
+  margin: 18px 0 28px 0;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+
+/* ==========================================================================
+   3. HEADER, NAVIGATION & FOOTER
+   ========================================================================== */
+
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -91,177 +189,91 @@ nav a {
 }
 
 nav a.active,
-nav a[aria-current="page"] {
-  color: var(--brand-red);
-  border-bottom: 2px solid var(--brand-red);
-}
-
+nav a[aria-current="page"],
 nav a:hover {
   color: var(--brand-red);
   border-bottom: 2px solid var(--brand-red);
 }
 
-/* Styled regular text link like nav */
-.styled-link {
-  color: var(--brand-red);
-  text-decoration: underline;
-  font-weight: 400;
-  padding: 4px 0;
-  border-bottom: 2px solid transparent;
-  transition: border-color var(--transition), color var(--transition);
-  cursor: pointer;
-}
-
-.styled-link:hover,
-.styled-link:focus-visible {
-  color: var(--brand-red);
-  border-bottom: 2px solid var(--brand-red);
-  text-decoration: none;
-}
-
-/* Removes the persistent highlight and browser ring on click */
-.styled-link:focus:not(:focus-visible) {
-  outline: none;
-  color: var(--text-main);
-  border-bottom: 2px solid transparent;
-}
-
-/* Page wrapper */
-.main-content {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 96px 24px 48px 24px;
-}
-
-@media (max-width: 700px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 12px;
-  }
-  .main-content {
-    padding: 96px 8px 32px 8px;
-  }
-  nav ul {
-    gap: 1rem;
-  }
-}
-
-/* Hero */
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 56px 0 36px 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  min-height: 340px;
-  z-index: 1;
-}
-.hero-parallax-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-image: url('images/your-parallax-image.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  opacity: 0.45;
-  pointer-events: none;
-  transition: background-position 0.3s;
-}
-.hero > *:not(.hero-parallax-bg) {
-  position: relative;
-  z-index: 2;
-}
-.hero-title {
-  font-size: 2.4rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-  letter-spacing: 1px;
-}
-.hero-subtitle {
+footer {
+  background: var(--bg-header);
   color: var(--text-muted);
-  font-size: 1.2rem;
-  margin-bottom: 32px;
-  max-width: 600px;
-}
-.cta-btn {
-  background: var(--brand-red);
-  color: #fff;
-  border: none;
-  border-radius: var(--radius);
-  padding: 14px 36px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(193,18,31,0.15);
-  transition: background var(--transition), transform var(--transition);
-  text-decoration: none;
-  display: inline-block;
-}
-.cta-btn:hover, .cta-btn:focus {
-  background: #a00e19;
-  transform: translateY(-2px) scale(1.03);
+  text-align: center;
+  padding: 30px 0 18px 0;
+  margin-top: 64px;
+  border-top: 2px solid #232629;
 }
 
-/* Section titles & dividers */
-.section-title {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--brand-red);
-  margin-top: 48px;
-  margin-bottom: 12px;
-  letter-spacing: 0.5px;
-  border-left: 4px solid var(--brand-red);
-  padding-left: 12px;
-}
-.divider {
-  width: 42px;
-  height: 3px;
-  background: var(--brand-red);
-  margin: 18px 0 28px 0;
-  border-radius: 2px;
-  opacity: 0.7;
-}
-
-.divider-flex {
-  width: 100%;
-  height: 3px;
-  background: var(--brand-red);
-  margin: 18px 0 28px 0;
-  border-radius: 2px;
-  opacity: 0.7;
-}
-
-/* Cards & grid layouts */
-.cards-row {
+.social-icons {
   display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 10px;
+}
+
+.social-icon {
+  color: var(--text-muted);
+  font-size: 1.6rem;
+  transition: color var(--transition), transform var(--transition);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.social-icon:hover,
+.social-icon:focus {
+  color: var(--brand-red);
+  transform: translateY(-2px) scale(1.07);
+}
+
+footer small {
+  font-size: 0.94rem;
+}
+
+
+/* ==========================================================================
+   4. CARDS & GRIDS
+   ========================================================================== */
+
+/* Grid container for cards */
+.cards-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   margin-bottom: 24px;
 }
 
-/* Unified card and game card styles, responsive and classic padding restored */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 32px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.features-grid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+  justify-content: center;
+}
+
+/* Universal Card Base */
 .card,
 .game-card {
   background: var(--bg-card);
   border-radius: var(--radius);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.16);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
   display: flex;
   flex-direction: column;
-  height: auto;
-  min-height: 0;
+  height: 100%;
   width: 100%;
-  max-width: 350px;
   align-items: flex-start;
-  margin-bottom: 16px;
 }
 
-/* Card image cover (with aspect ratio for responsiveness) */
 .card-image-cover,
 .game-card .card-image-cover {
   width: 100%;
@@ -286,7 +298,6 @@ nav a:hover {
   border-radius: 8px 8px 0 0;
 }
 
-/* News tag badge for top-left of image */
 .news-tag-badge {
   position: absolute;
   top: 12px;
@@ -321,7 +332,6 @@ nav a:hover {
   padding: 0 24px;
 }
 
-/* More Info Button: keep at bottom on desktop/mobile, align with text */
 .card .more-info-btn,
 .game-card-content .more-info-btn {
   margin-top: auto;
@@ -337,11 +347,12 @@ nav a:hover {
   font-weight: 600;
   letter-spacing: 0.03em;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(193,18,31,0.10);
+  box-shadow: 0 2px 8px rgba(193, 18, 31, 0.10);
   transition: background var(--transition), transform var(--transition);
   text-decoration: none;
   display: inline-block;
 }
+
 .card .more-info-btn:hover,
 .game-card-content .more-info-btn:hover,
 .card .more-info-btn:focus,
@@ -351,61 +362,94 @@ nav a:hover {
   transform: translateY(-2px) scale(1.03);
 }
 
-/* Cards & grid layouts */
-.cards-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Strictly forces 3 equal columns */
-  gap: 1.5rem;
-  margin-bottom: 24px;
+.feature-card {
+  flex: 1 1 280px;
+  max-width: 350px;
+  background: var(--bg-card);
+  border-radius: 14px;
+  padding: 32px 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #333;
+  transition: transform 0.2s;
 }
 
-/* Unified card and game card styles */
-.card,
-.game-card {
-  background: var(--bg-card);
-  border-radius: var(--radius);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.16);
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--brand-red);
+}
+
+.feature-card h3 {
+  color: var(--brand-red);
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: var(--text-main);
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ==========================================================================
+   5. PAGE SECTIONS
+   ========================================================================== */
+
+/* Hero */
+.hero {
   display: flex;
   flex-direction: column;
-  height: 100%; /* Ensures cards stretch to equal height */
-  width: 100%;
-  max-width: none; /* Removes the 350px cap */
-  margin-bottom: 0; /* Let the grid gap handle spacing */
-  align-items: flex-start;
-}
-  .card-image-cover,
-  .game-card .card-image-cover {
-    aspect-ratio: 16 / 9;
-    min-height: 120px;
-    max-height: 220px;
-    border-radius: 8px 8px 0 0;
-  }
-  .card-title,
-  .game-title,
-  .card-desc,
-  .game-desc {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-  .card .more-info-btn,
-  .game-card-content .more-info-btn {
-    margin-left: 14px;
-    margin-bottom: 12px;
-  }
+  align-items: center;
+  justify-content: center;
+  padding: 56px 0 36px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 340px;
+  z-index: 1;
 }
 
-/* Games grid (games.html) */
-.games-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 2rem;
-  margin-top: 32px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+.hero-parallax-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('images/your-parallax-image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.45;
+  pointer-events: none;
+  transition: background-position 0.3s;
 }
 
-/* News/blog listing (news.html) */
+.hero > *:not(.hero-parallax-bg) {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.hero-subtitle {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  margin-bottom: 32px;
+  max-width: 600px;
+}
+
+/* News Layout & Sidebar */
+.news-layout {
+  display: flex;
+  gap: 2.5rem;
+  align-items: stretch;
+  min-height: 60vh;
+}
+
 .blog-list {
   flex: 1 1 0;
   display: flex;
@@ -416,7 +460,7 @@ nav a:hover {
 .blog-post {
   background: var(--bg-card);
   border-radius: var(--radius);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.13);
   padding: 20px 24px 18px 24px;
   display: flex;
   flex-direction: column;
@@ -450,19 +494,11 @@ nav a:hover {
   font-size: 1rem;
 }
 
-/* News/blog sidebar always full height of main content area */
-.news-layout {
-  display: flex;
-  gap: 2.5rem;
-  align-items: stretch;
-  min-height: 60vh;
-}
-
 .sidebar {
   width: 240px;
   background: var(--bg-card);
   border-radius: var(--radius);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.14);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
   padding: 22px 18px 16px 18px;
   font-size: 1rem;
   margin-top: 8px;
@@ -506,7 +542,6 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* Removes the persistent highlight and browser ring on click */
 .sidebar-link:focus:not(:focus-visible) {
   outline: none;
   color: var(--text-muted);
@@ -514,65 +549,7 @@ nav a:hover {
   text-decoration: none;
 }
 
-/* Footer */
-footer {
-  background: var(--bg-header);
-  color: var(--text-muted);
-  text-align: center;
-  padding: 30px 0 18px 0;
-  margin-top: 64px;
-  border-top: 2px solid #232629;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-bottom: 10px;
-}
-
-.social-icon {
-  color: var(--text-muted);
-  font-size: 1.6rem;
-  transition: color var(--transition), transform var(--transition);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-}
-
-.social-icon:hover,
-.social-icon:focus {
-  color: var(--brand-red);
-  transform: translateY(-2px) scale(1.07);
-}
-
-footer small {
-  font-size: 0.94rem;
-}
-
-/* Utility classes */
-.sr-only {
-  position: absolute;
-  left: -100vw;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
-@media (max-width: 900px) {
-  .news-layout {
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: stretch;
-  }
-  .sidebar {
-    width: 100%;
-    margin-bottom: 16px;
-    height: auto;
-  }
-}
-
-/* --- Visual Contact CTA Page Styles --- */
+/* Visual Contact CTA */
 .visual-contact-wrapper {
   max-width: 900px;
   margin: 0 auto;
@@ -581,10 +558,12 @@ footer small {
   flex-direction: column;
   gap: 38px;
 }
+
 .visual-contact-header {
   text-align: center;
   margin-bottom: 14px;
 }
+
 .visual-contact-header h1 {
   color: var(--brand-red);
   font-size: 2rem;
@@ -592,17 +571,20 @@ footer small {
   margin-bottom: 10px;
   letter-spacing: 1px;
 }
+
 .visual-contact-header p {
   color: var(--text-muted);
   font-size: 1.14rem;
   margin-top: 0;
 }
+
 .contact-card-row {
   display: flex;
   gap: 2.8rem;
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .contact-card {
   flex: 1 1 320px;
   max-width: 420px;
@@ -619,14 +601,17 @@ footer small {
   border: 2.5px solid transparent;
   transition: border-color 0.18s;
 }
+
 .contact-card.support {
   border-color: var(--brand-red);
   box-shadow: 0 2px 18px #c1121f22;
 }
+
 .contact-card.playtest {
   border-color: var(--brand-orange);
   box-shadow: 0 2px 18px #eb5e2822;
 }
+
 .contact-card-image {
   width: 80px;
   height: 80px;
@@ -640,10 +625,12 @@ footer small {
   color: var(--brand-red);
   box-shadow: 0 2px 8px #0002;
 }
+
 .contact-card.playtest .contact-card-image {
   color: var(--brand-orange);
   background: var(--brand-orange-bg);
 }
+
 .contact-card-title {
   font-size: 1.25rem;
   font-weight: 700;
@@ -651,9 +638,11 @@ footer small {
   color: var(--brand-red);
   letter-spacing: 0.5px;
 }
+
 .contact-card.playtest .contact-card-title {
   color: var(--brand-orange);
 }
+
 .contact-card-desc {
   color: var(--text-main);
   font-size: 1.05rem;
@@ -662,6 +651,7 @@ footer small {
   min-height: 48px;
   line-height: 1.6;
 }
+
 .contact-card-email {
   display: flex;
   align-items: center;
@@ -680,27 +670,27 @@ footer small {
   border: 1.5px solid var(--brand-red);
   box-shadow: 0 1px 6px #c1121f11;
 }
-.contact-card-email:hover, .contact-card-email:focus {
+
+.contact-card-email:hover, 
+.contact-card-email:focus {
   background: var(--brand-red);
   color: #fff;
 }
+
 .contact-card.playtest .contact-card-email {
   background: var(--brand-orange-bg);
   color: var(--brand-orange);
   border-color: var(--brand-orange);
   box-shadow: 0 1px 6px #eb5e2822;
 }
+
 .contact-card.playtest .contact-card-email:hover,
 .contact-card.playtest .contact-card-email:focus {
   background: var(--brand-orange);
   color: #181a1b;
 }
-@media (max-width: 900px) {
-  .visual-contact-wrapper { gap: 18px; }
-  .contact-card-row { flex-direction: column; gap: 1.7rem; align-items: center; }
-}
 
-/* About Us page specific */
+/* About Us */
 .about-section {
   margin-bottom: 44px;
 }
@@ -786,48 +776,86 @@ footer small {
   box-shadow: 0 2px 8px #0002;
 }
 
-/* Feature Card Grid for Game Landing Pages */
-.features-grid {
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin-top: 32px;
-  justify-content: center;
-}
 
-.feature-card {
-  flex: 1 1 280px;
-  max-width: 350px;
-  background: var(--bg-card);
-  border-radius: 14px;
-  padding: 32px 24px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  border: 1px solid #333;
-  transition: transform 0.2s;
-}
+/* ==========================================================================
+   6. MEDIA QUERIES & RESPONSIVENESS
+   ========================================================================== */
 
-.feature-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--brand-red);
-}
+/* Tablet & Mobile Layout Adaptations */
+@media (max-width: 900px) {
+  .news-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+  
+  .sidebar {
+    width: 100%;
+    margin-bottom: 16px;
+    height: auto;
+  }
 
-.feature-card h3 {
-  color: var(--brand-red);
-  font-size: 1.25rem;
-  margin-top: 0;
-  margin-bottom: 12px;
-}
+  .visual-contact-wrapper {
+    gap: 18px;
+  }
 
-.feature-card p {
-  color: var(--text-main);
-  line-height: 1.6;
-  margin: 0;
+  .contact-card-row {
+    flex-direction: column;
+    gap: 1.7rem;
+    align-items: center;
+  }
 }
 
 @media (max-width: 800px) {
-  .about-lead-row, .core-values-list {
+  .cards-row {
+    grid-template-columns: 1fr;
+  }
+
+  .about-lead-row, 
+  .core-values-list {
     flex-direction: column;
     gap: 18px;
   }
-  .core-value-card { max-width: 100%; }
+
+  .core-value-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 12px;
+  }
+
+  .main-content {
+    padding: 96px 8px 32px 8px;
+  }
+
+  nav ul {
+    gap: 1rem;
+  }
+
+  .card-image-cover,
+  .game-card .card-image-cover {
+    aspect-ratio: 16 / 9;
+    min-height: 120px;
+    max-height: 220px;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .card-title,
+  .game-title,
+  .card-desc,
+  .game-desc {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .card .more-info-btn,
+  .game-card-content .more-info-btn {
+    margin-left: 14px;
+    margin-bottom: 12px;
+  }
 }
