@@ -2,11 +2,15 @@
    1. VARIABLES & BASE RESET
    ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@400;600;700;800&display=swap');
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@400;600;700;800&display=swap');
 
 :root {
   --bg-main: #181a1b;
@@ -33,7 +37,31 @@
   --shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
   --radius: 8px;
   --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --font-main: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+  
+  
+  /* Font Families */
+  --font-heading: 'Roboto Slab', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Update main font variable */
+  --font-main: var(--font-body);
+}
+
+/* Apply Roboto Slab to section titles, logo, hero title, and headers */
+h1, h2, h3, h4, h5, h6,
+.logo,
+.hero-title,
+.section-title,
+.about-title,
+.card-title,
+.game-title,
+.feature-card h3,
+.sidebar-title,
+.visual-contact-header h1,
+.contact-card-title,
+.core-value-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
 }
 
 html, body {
@@ -41,7 +69,7 @@ html, body {
   padding: 0;
   background: var(--bg-main);
   color: var(--text-main);
-  font-family: var(--font-main);
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
 }
