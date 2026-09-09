@@ -562,6 +562,21 @@ footer small {
   font-size: 0.97rem;
 }
 
+.sidebar-link[data-tag="Quarterly Review"]:hover,
+.sidebar-link[data-tag="Quarterly Review"].active {
+  color: var(--brand-orange);
+}
+
+.sidebar-link[data-tag="Dev Updates"]:hover,
+.sidebar-link[data-tag="Dev Updates"].active {
+  color: var(--brand-purple);
+}
+
+.sidebar-link[data-tag="Releases"]:hover,
+.sidebar-link[data-tag="Releases"].active {
+  color: var(--brand-blue);
+}
+
 .sidebar-link:hover,
 .sidebar-link:focus-visible,
 .tag-link.active {
