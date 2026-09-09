@@ -56,23 +56,23 @@
       });
 
     function renderNews(tag) {
-      let filtered = (tag === 'All') ? newsData : newsData.filter(post => (post.tags||[]).includes(tag));
-      if (filtered.length === 0) {
-        newsContainer.innerHTML = `<p style="color:var(--text-muted);padding:24px 0;">No news posts found for this category.</p>`;
-        return;
-      }
-      newsContainer.innerHTML = filtered.map(post => `
-        <div class="card">
-          <div class="card-image-cover">
-            ${(post.tags && post.tags.length) ? `<span class="news-tag-badge">${post.tags[0]}</span>` : ''}
-            <img src="${post.cover}" alt="${post.title}" class="cover-img">
-          </div>
-          <span class="card-title">${post.title}</span>
-          <span class="card-desc">${post.desc}</span>
-          <a href="${post.link}" class="more-info-btn">Read News</a>
-        </div>
-      `).join('');
-    }
+	  let filtered = (tag === 'All') ? newsData : newsData.filter(post => (post.tags||[]).includes(tag));
+	  if (filtered.length === 0) {
+		newsContainer.innerHTML = `<p style="color:var(--text-muted);padding:24px 0;">No news posts found for this category.</p>`;
+		return;
+	  }
+	  newsContainer.innerHTML = filtered.map(post => `
+		<div class="card">
+		  <div class="card-image-cover">
+			${(post.tags && post.tags.length) ? `<span class="news-tag-badge" data-tag="${post.tags[0]}">${post.tags[0]}</span>` : ''}
+			<img src="${post.cover}" alt="${post.title}" class="cover-img">
+		  </div>
+		  <span class="card-title">${post.title}</span>
+		  <span class="card-desc">${post.desc}</span>
+		  <a href="${post.link}" class="more-info-btn">Read News</a>
+		</div>
+	  `).join('');
+	}
 
     // Tag click event
     document.addEventListener('DOMContentLoaded', function() {

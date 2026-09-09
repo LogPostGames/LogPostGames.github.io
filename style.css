@@ -14,10 +14,21 @@
   --bg-card: #232629;
   --text-main: #f2f2f6;
   --text-muted: #bcbcbc;
+  
+  /*
+	Accent Colors
+  */ 
+  
   --brand-red: #c1121f;
-  --brand-red-bg: #2e2122;
-  --brand-blue: #669bbc;
   --brand-orange: #eb5e28;
+  --brand-yellow: #e57d00;
+  --brand-blue: #669bbc;
+  --brand-teal: #2a9d8f;
+  --brand-green: #52b788;
+  --brand-purple: #5e548e;
+
+  
+  --brand-red-bg: #2e2122;
   --brand-orange-bg: #2d2220;
   --shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
   --radius: 8px;
@@ -313,6 +324,23 @@ footer small {
   letter-spacing: 0.02em;
   pointer-events: none;
   user-select: none;
+}
+
+/* Category Color Mappings */
+.news-tag-badge[data-tag="Announcements"] {
+  background: var(--brand-red);
+}
+
+.news-tag-badge[data-tag="Quarterly Review"] {
+  background: var(--brand-orange);
+}
+
+.news-tag-badge[data-tag="Dev Updates"] {
+  background: var(--brand-purple);
+}
+
+.news-tag-badge[data-tag="Releases"] {
+  background: var(--brand-blue);
 }
 
 .card-title,
