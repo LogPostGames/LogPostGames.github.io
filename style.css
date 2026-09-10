@@ -311,6 +311,14 @@ footer small {
   align-items: flex-start;
 }
 
+.card .card-desc,
+.game-desc {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 16px;
+  padding: 0 24px;
+}
+
 .card-image-cover,
 .game-card .card-image-cover {
   width: 100%;
@@ -1182,17 +1190,19 @@ footer small {
 }
 
 /* Base Card Setup */
-.color-card {
-  background-color: #16181F;
-  border: 2px solid var(--border-color, var(--card-color));
-  border-radius: 16px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  box-sizing: border-box;
-  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), 
-              box-shadow 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+.color-card .card-desc {
+  color: #9A9FA9;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.color-card .copy-btn {
+  margin-top: auto;
 }
 
 .color-card:hover {
