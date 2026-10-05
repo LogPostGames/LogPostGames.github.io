@@ -1,5 +1,25 @@
 [
   {
+    "title": "Blog Post Q3 2026",
+    "desc": "",
+    "cover": "https://placehold.co/740x300/232629/c1121f?text=Blog+Post+Q3+2026",
+    "link": "/news/blog-post-q3-2026",
+    "date": "2026-10-05",
+    "tags": [
+      "Quarterly Review"
+    ]
+  },
+  {
+    "title": "Kickstarter Pre-Launch",
+    "desc": "",
+    "cover": "https://placehold.co/740x300/232629/c1121f?text=Kickstarter+Pre-Launch",
+    "link": "/news/kickstarter-pre-launch",
+    "date": "2026-10-05",
+    "tags": [
+      "Quarterly Review"
+    ]
+  },
+  {
     "title": "We Went To Origins - Q2 2026 Quarterly Review",
     "desc": "Can you believe we're already half way through 2026?",
     "cover": "/images/ToWCover.png",
