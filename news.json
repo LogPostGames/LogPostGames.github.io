@@ -3,17 +3,7 @@
     "title": "Blog Post Q3 2026",
     "desc": "",
     "cover": "https://placehold.co/740x300/232629/c1121f?text=Blog+Post+Q3+2026",
-    "link": "/news/blog-post-q3-2026",
-    "date": "2026-10-05",
-    "tags": [
-      "Quarterly Review"
-    ]
-  },
-  {
-    "title": "Kickstarter Pre-Launch",
-    "desc": "",
-    "cover": "https://placehold.co/740x300/232629/c1121f?text=Kickstarter+Pre-Launch",
-    "link": "/news/kickstarter-pre-launch",
+    "link": "/news/blogpost-q3-2026",
     "date": "2026-10-05",
     "tags": [
       "Quarterly Review"
